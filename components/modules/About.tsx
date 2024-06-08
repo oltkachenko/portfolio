@@ -17,7 +17,7 @@ export default function About(about: SanityModuleAbout) {
                         src={about.image.url}
                         alt={about.title} 
                         width={418}
-                        height={500}
+                        height={478}
                     />
                 </div>
                 <div className='about_me-copy'>
