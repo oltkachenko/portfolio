@@ -5,23 +5,21 @@ import { getLocale } from 'next-intl/server'
 
 export default async function Copyright() {
     const locale = await getLocale()
-    const data = await client.fetch<SanityFooterCopyright>(FOOTER_COPYRIGHT, {
+    const footerData = await client.fetch<SanityFooterCopyright>(FOOTER_COPYRIGHT, {
         language: locale
     })
-    
-    const copyright = data.copyright?.value;
-    
+
     const setDateRange = () => {
-        if  (new Date().getFullYear() > new Date(data.releaseDate).getFullYear()) {
-            return `${new Date(data.releaseDate).getFullYear()} - ${new Date().getFullYear()}`
+        if  (new Date().getFullYear() > new Date(footerData.releaseDate).getFullYear()) {
+            return `${new Date(footerData.releaseDate).getFullYear()} - ${new Date().getFullYear()}`
         }
 
-        return new Date(data.releaseDate).getFullYear();
+        return new Date(footerData.releaseDate).getFullYear();
     }
 
     return (
         <p>
-            © {copyright} {setDateRange()}
+            © {footerData.copyright} {setDateRange()}
         </p>
     )
 }

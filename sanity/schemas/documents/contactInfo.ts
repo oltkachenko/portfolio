@@ -10,12 +10,42 @@ export default defineType({
         defineField({
             name: 'title',
             title: 'Title',
-            type: 'string',
+            type: 'internationalizedArrayString',
         }),
-        {
+        defineField({
             name: 'value',
             title: 'Value',
             type: 'string'
+        }),
+        defineField({
+            name: 'type',
+            title: 'Type',
+            type: 'string',
+            options: {
+                list: [
+                    {title: 'Text', value: 'text'},
+                    {title: 'Email', value: 'email'},
+                    {title: 'Phone', value: 'tel'}
+                ],
+                layout: 'radio',
+                direction: "horizontal",
+            },
+        }),
+    ],
+    
+    preview: {
+        select: {
+            title: 'title',
+            value: 'value',
         },
-    ]
+        prepare(selection) {
+            const {title, value} = selection
+            
+            return {
+                title: title[0].value,
+                subtitle: value,
+                media: ComponentIcon,
+            }
+        },
+    },
 })

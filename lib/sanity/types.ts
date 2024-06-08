@@ -98,9 +98,7 @@ export type SanitySeo = {
 };
 
 export type SanityFooterCopyright = {
-    copyright: {
-        value: string
-    },
+    copyright: string,
     releaseDate: string
 };
 
@@ -122,4 +120,5 @@ export type SanityContactInfo = {
     _type: string;
     title: string;
     value: string;
+    type: 'tel' | 'email' | 'text' | null;
 }

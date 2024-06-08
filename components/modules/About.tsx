@@ -7,6 +7,7 @@ import ContactInfo from './ContactInfo'
 
 export default function About(about: SanityModuleAbout) {
 
+    console.log(about);
     
     return (
         <GridLayout>
