@@ -19,9 +19,6 @@ interface Props {
 export default function ContactForm({formTranslation, contact}: Props) {
     const [formStatus, setFormStatus] = useState<FormStatus>()
 
-    console.log('form', contact);
-    
-
     const {
         register,
         handleSubmit,
