@@ -1,0 +1,20 @@
+{
+    "ContactForm": {
+        "buttonName": "Send message",
+        "labelName": "Name",
+        "labelEmail": "Email",
+        "labelSubject": "Subject",
+        "labelMessage": "Message",
+        "formErrors": {
+            "name": "Name is required.",
+            "email": "Please enter a valid email address.",
+            "subject": "Please enter a subject.",
+            "message": "Minimum 2 characters."
+        },
+        "generalErrors": {
+            "emptyField": "All fields are required",
+            "messageSent": "Message was successfully submitted",
+            "failed": "Failed to send a message"
+        }
+    }
+}

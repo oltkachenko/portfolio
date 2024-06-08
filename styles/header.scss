@@ -1,0 +1,13 @@
+.header {
+    background-color: #FFE6E8;
+    
+    &-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1440px;
+        padding: 0 20px;
+        margin: 0 auto;
+        min-height: 74px;
+    }
+}

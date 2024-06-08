@@ -1,0 +1,11 @@
+.grid_layout {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 20px;
+
+    &-content {
+        display: grid;
+        grid-template-columns: [grid-start] repeat(12, 1fr) [grid-end];
+        grid-gap: 20px;
+    }
+}

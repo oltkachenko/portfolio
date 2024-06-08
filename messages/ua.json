@@ -1,0 +1,20 @@
+{
+    "ContactForm": {
+        "buttonName": "Надіслати повідомлення",
+        "labelName": "Ім'я",
+        "labelEmail": "E-mail",
+        "labelSubject": "Тема",
+        "labelMessage": "Повідомлення",
+        "formErrors": {
+            "name": "Необхідно вказати ім'я.",
+            "email": "Будь ласка, введіть e-mail адресу.",
+            "subject": "Будь ласка, введіть тему.",
+            "message": "Мінімум 2 символи."
+        },
+        "generalErrors": {
+            "emptyField": "Всі поля обов'язкові для заповнення",
+            "messageSent": "Повідомлення успішно надіслано",
+            "failed": "Не вдалося надіслати повідомлення"
+        }
+    }
+}

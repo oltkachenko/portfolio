@@ -1,0 +1,65 @@
+.portable_text {
+    h1,
+    .h1 {
+        font-size: 40px;
+        font-weight: 700;
+    }
+
+    h2,
+    .h2 {
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    h3,
+    .h3 {
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    h4,
+    .h4 {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    h5,
+    .h5 {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    h6,
+    .h6 {
+        font-size: 14px;
+        font-weight: 700;
+    }
+
+    p:not(:first-child) {
+        margin-top: 16px;
+    }
+
+    ul {
+        list-style: disc inside;
+
+        li {
+            margin-top: 16px;
+        }
+
+        li::marker {
+            color: #29a587;
+        }
+    }
+
+    ol {
+        list-style: decimal inside;
+
+        li {
+            margin-top: 16px;
+        }
+
+        li::marker {
+            color: #29a587;
+        }
+    }
+}
