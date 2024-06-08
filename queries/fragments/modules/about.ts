@@ -5,6 +5,7 @@ import { CONTACT_INFO } from "../contactInfo";
 
 export const MODULE_ABOUT = groq`
 	title,
+    linkName,
     image {
         ${IMAGE}
     },
@@ -13,5 +14,10 @@ export const MODULE_ABOUT = groq`
     },
     contactInfo[] -> {
         ${CONTACT_INFO}
+    },
+    file {
+        _type,
+        description,
+        "fileUrl": asset->url
     }
 `;

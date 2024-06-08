@@ -1,5 +1,8 @@
 .header {
     background-color: #FFE6E8;
+    position: sticky;
+    top: 0;
+    z-index: 10;
     
     &-inner {
         display: flex;

@@ -6,19 +6,25 @@ export default defineField({
     title: 'About me',
     type: 'object',
     icon: UserIcon,
+    groups: [
+        {name: 'general', title: 'General', default: true},
+        {name: 'download', title: 'Files'}
+    ],
     fields: [
         // Text
         defineField({
             name: 'title',
             title: 'Title',
             description: 'This field is the title of about section.',
-            type: 'string'
+            type: 'string',
+            group: 'general'
         }),
         // Body
         defineField({
             name: 'body',
             title: 'Body',
-            type: 'body'
+            type: 'body',
+            group: 'general'
         }),
         // Contact info
         defineField({
@@ -30,7 +36,8 @@ export default defineField({
                     type: 'reference',
                     to: [{type: 'contactInfo'}],
                 }
-            ]
+            ],
+            group: 'general'
         }),
         // Image
         defineField({
@@ -39,6 +46,30 @@ export default defineField({
             type: 'image',
             options: {hotspot: true},
             validation: (rule) => rule.required(),
+            group: 'general'
+        }),
+        // Download files
+        defineField({
+            name: 'linkName',
+            title: 'Download link name',
+            type: 'string',
+            group: 'download'
+        }),
+        defineField({
+            name: 'file',
+            title: 'PDF file',
+            type: 'file',
+            options: {
+                accept: 'application/pdf'
+            },
+            fields: [
+                {
+                  name: 'description',
+                  type: 'string',
+                  title: 'Description'
+                }
+            ],
+            group: 'download'
         }),
     ],
     preview: {
