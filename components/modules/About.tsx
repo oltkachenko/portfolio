@@ -6,9 +6,6 @@ import Image from 'next/image'
 import ContactInfo from './ContactInfo'
 
 export default function About(about: SanityModuleAbout) {
-
-    console.log(about);
-    
     return (
         <GridLayout>
             <section className='about_me'>
