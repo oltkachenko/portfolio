@@ -1,0 +1,48 @@
+.about_me {
+    grid-column: grid-start / grid-end;
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: [grid-start] repeat(12, 1fr) [grid-end];
+    grid-gap: 20px;
+    align-items: center;
+
+    &-title {
+        color: #29a587;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    &-copy {
+        grid-column: 6 / grid-end;
+    }
+
+    &-img_container {
+        grid-column: grid-start / 6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &-info {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        padding-top: 30px;
+        position: relative;
+
+        &::before {
+            content: '';
+            border-top: 2px solid #29a587;
+            height: 2px;
+            width: 20%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &-info_tile {
+        width: calc(100% / 3);
+    }
+}

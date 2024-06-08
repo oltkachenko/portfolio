@@ -1,0 +1,23 @@
+import groq from "groq";
+
+import { MODULE_SERVICES } from "./modules/services";
+import { MODULE_CALLOUT } from "./modules/callout";
+import { MODULE_ABOUT } from "./modules/about";
+import { MODULE_CONTACT } from "./modules/contact";
+
+export const MODULES = groq`
+    _key,
+    _type,
+    (_type == "module.services") => {
+        ${MODULE_SERVICES}
+    },
+    (_type == "module.callout") => {
+        ${MODULE_CALLOUT}
+    },
+    (_type == "module.about") => {
+        ${MODULE_ABOUT}
+    },
+    (_type == "module.contact") => {
+        ${MODULE_CONTACT}
+    }
+`;

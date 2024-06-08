@@ -1,0 +1,19 @@
+.services {
+    background-color: #FBF1EE;
+    padding: 40px 0;
+
+    &-heading {
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    &-title {
+        font-size: 32px;
+        color: #29a587;
+        font-weight: 700;
+    }
+
+    &-subtitle {
+        margin-top: 16px;
+    }
+}

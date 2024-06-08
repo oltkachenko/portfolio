@@ -1,0 +1,71 @@
+import {LinkIcon} from '@sanity/icons'
+import {defineField} from 'sanity'
+
+import {PAGE_REFERENCES} from '../../constants'
+
+export default defineField({
+    title: 'Internal Link',
+    name: 'linkInternal',
+    type: 'object',
+    icon: LinkIcon,
+    fields: [
+        // Title
+        {
+            title: 'Title',
+            name: 'title',
+            type: 'string',
+            validation: (rule) => rule.required(),
+        },
+        {
+            name: 'buttonStyle',
+            title: 'Button Style',
+            type: 'string',
+            options: {
+                list: [
+                    {title: 'Link', value: 'link-style'},
+                    {title: 'Button', value: 'button-style'}
+                ],
+                layout: 'dropdown'
+            }
+        },
+        // Reference
+        {
+            name: 'reference',
+            type: 'reference',
+            weak: true,
+            validation: (rule) => rule.required(),
+            to: PAGE_REFERENCES,
+        },
+    ],
+    preview: {
+        select: {
+            reference: 'reference',
+            referenceProductTitle: 'reference.store.title',
+            referenceProductPriceRange: 'reference.store.priceRange',
+            referenceTitle: 'reference.title',
+            referenceType: 'reference._type',
+            title: 'title',
+        },
+        prepare(selection) {
+            const {
+                reference,
+                referenceProductTitle,
+                referenceTitle,
+                title,
+            } = selection
+
+            const subtitle = []
+            if (reference) {
+                subtitle.push([`→ ${referenceTitle || referenceProductTitle || reference?._id}`])
+            } else {
+                subtitle.push('(Nonexistent document reference)')
+            }
+
+            return {
+                // media: image,
+                subtitle: subtitle.join(' '),
+                title,
+            }
+        },
+    },
+})

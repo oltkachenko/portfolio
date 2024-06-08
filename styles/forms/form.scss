@@ -1,0 +1,22 @@
+.form {
+    &-line {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    &-message {
+        border-radius: 4px;
+        font-size: 14px;
+        padding: 8px 16px;
+        margin-bottom: 16px;
+
+        &.error {
+            background-color: rgba(#F48498, 0.4);
+        }
+
+        &.success {
+            background-color: rgba(#acd8aa, 0.4);
+        }
+    }
+}
