@@ -48,9 +48,14 @@ export type SanityModuleAbout = {
     _key?: string;
     _type: "module.about";
     title: string;
+    linkName: string;
     image: SanityAssetImage;
-    body: PortableTextBlock[]
-    contactInfo: SanityContactInfo[]
+    body: PortableTextBlock[];
+    contactInfo: SanityContactInfo[];
+    file: {
+        description: string;
+        fileUrl: string;
+    }
 }
 
 export type SanityModuleContact = {

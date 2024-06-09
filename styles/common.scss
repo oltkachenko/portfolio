@@ -1,14 +1,23 @@
-@import 'forms/form';
-@import 'forms/combo-menu';
-@import 'forms/form_field';
-@import 'header';
-@import 'footer';
-@import 'menu_bar';
-@import 'grid_layout';
-@import 'modules/services';
-@import 'modules/about_me';
-@import 'modules/contact';
-@import 'tile';
-@import 'portable_text';
-@import 'contact_info';
-@import 'button';
+@import '00_configuration/all';
+@import '02-components/grid';
+@import '03_base/general';
+
+@import '05_blocks/forms/form';
+@import '05_blocks/forms/combo-menu';
+@import '05_blocks/forms/form_field';
+
+@import '05_blocks/common/button';
+@import '05_blocks/common/grid_layout';
+@import '05_blocks/common/back_to_top';
+@import '05_blocks/common/portable_text';
+
+@import '05_blocks/header/header';
+@import '05_blocks/header/menu_bar';
+
+@import '05_blocks/footer/footer';
+
+@import '05_blocks/modules/services';
+@import '05_blocks/modules/about_me';
+@import '05_blocks/modules/contact';
+@import '05_blocks/modules/contact_info';
+@import '05_blocks/modules/tile';

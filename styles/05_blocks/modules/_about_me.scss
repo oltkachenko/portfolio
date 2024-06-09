@@ -1,0 +1,82 @@
+.about_me {
+    @include g-grid;
+
+    grid-column: grid-start / grid-end;
+    padding: 40px 0;
+    align-items: center;
+    grid-row-gap: 20px;
+
+    &-title {
+        color: #29a587;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    &-copy {
+        @include media(md-up) {
+            grid-column: 6 / grid-end;
+        }
+
+        @include media(sm) {
+            grid-column: grid-start / grid-end;
+        }
+    }
+
+    &-img_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include media(md-up) {
+            grid-column: grid-start / 6;
+        }
+
+        @include media(sm) {
+            grid-column: grid-start / grid-end;
+        }
+    }
+
+    &-info {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 32px;
+        padding-top: 32px;
+        position: relative;
+        flex-wrap: wrap;
+
+        @include media(md-down) {
+            flex-direction: column;
+            margin-top: 20px;
+            padding-top: 20px;
+        }
+
+        &::before {
+            content: '';
+            border-top: 2px solid #29a587;
+            height: 2px;
+            width: 20%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &-info_tile {
+        @include media(lg-up) {
+            width: calc(100% / 3);
+        }
+
+        @include media(md-down) {
+            margin-bottom: 16px;
+        }
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+
+    &-actions {
+        margin-top: 32px;
+    }
+}

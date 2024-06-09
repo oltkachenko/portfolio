@@ -1,5 +1,4 @@
 import ContactForm from "@/components/ContactForm";
-import GridLayout from "@/components/common/GridLayout";
 import About from "@/components/modules/About";
 import Services from "@/components/modules/Services";
 import getTranslation from "@/helpers/getTranslation";
