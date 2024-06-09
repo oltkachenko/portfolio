@@ -27,8 +27,8 @@
     &-info {
         display: flex;
         justify-content: space-between;
-        margin-top: 30px;
-        padding-top: 30px;
+        margin-top: 32px;
+        padding-top: 32px;
         position: relative;
 
         &::before {
@@ -44,5 +44,9 @@
 
     &-info_tile {
         width: calc(100% / 3);
+    }
+
+    &-actions {
+        margin-top: 32px;
     }
 }

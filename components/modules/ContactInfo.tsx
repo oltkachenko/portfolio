@@ -8,10 +8,6 @@ interface Props {
 }
 
 export default function ContactInfo({info, className}: Props ) {
-    const renderValue = () => {
-
-    }
-
     return (
         <div className={`${className ? className : ''} contact_info`}>
             <div className='contact_info-title'>{info.title}</div>

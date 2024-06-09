@@ -4,11 +4,9 @@ import type { SanityModuleAbout } from '@/lib/sanity'
 import GridLayout from '../common/GridLayout'
 import Image from 'next/image'
 import ContactInfo from './ContactInfo'
+import Link from 'next/link'
 
 export default function About(about: SanityModuleAbout) {
-
-    console.log(about);
-    
     return (
         <GridLayout>
             <section className='about_me'>
@@ -30,6 +28,17 @@ export default function About(about: SanityModuleAbout) {
                             <ContactInfo key={info._id} info={info} className='about_me-info_tile'/>
                         ))}
                     </div>)}
+
+                    {about.file && about.file.fileUrl && about.linkName && (
+                        <div className='about_me-actions'>
+                            <Link 
+                                href={`${about.file.fileUrl}?dl=`}
+                                className='button'
+                            >
+                                {about.linkName}
+                            </Link>
+                        </div>
+                    )}   
                 </div>
             </section>
         </GridLayout>
