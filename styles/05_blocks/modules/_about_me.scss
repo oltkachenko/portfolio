@@ -1,10 +1,10 @@
 .about_me {
+    @include g-grid;
+
     grid-column: grid-start / grid-end;
     padding: 40px 0;
-    display: grid;
-    grid-template-columns: [grid-start] repeat(12, 1fr) [grid-end];
-    grid-gap: 20px;
     align-items: center;
+    grid-row-gap: 20px;
 
     &-title {
         color: #29a587;
@@ -14,14 +14,27 @@
     }
 
     &-copy {
-        grid-column: 6 / grid-end;
+        @include media(md-up) {
+            grid-column: 6 / grid-end;
+        }
+
+        @include media(sm) {
+            grid-column: grid-start / grid-end;
+        }
     }
 
     &-img_container {
-        grid-column: grid-start / 6;
         display: flex;
         align-items: center;
         justify-content: center;
+
+        @include media(md-up) {
+            grid-column: grid-start / 6;
+        }
+
+        @include media(sm) {
+            grid-column: grid-start / grid-end;
+        }
     }
 
     &-info {
@@ -30,6 +43,13 @@
         margin-top: 32px;
         padding-top: 32px;
         position: relative;
+        flex-wrap: wrap;
+
+        @include media(md-down) {
+            flex-direction: column;
+            margin-top: 20px;
+            padding-top: 20px;
+        }
 
         &::before {
             content: '';
@@ -43,7 +63,17 @@
     }
 
     &-info_tile {
-        width: calc(100% / 3);
+        @include media(lg-up) {
+            width: calc(100% / 3);
+        }
+
+        @include media(md-down) {
+            margin-bottom: 16px;
+        }
+
+        &:last-child {
+            margin: 0;
+        }
     }
 
     &-actions {

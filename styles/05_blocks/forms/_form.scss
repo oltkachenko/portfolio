@@ -1,8 +1,10 @@
 .form {
     &-line {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        @include media(lg-up) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
     }
 
     &-message {
