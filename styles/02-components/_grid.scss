@@ -1,0 +1,24 @@
+@mixin g-grid {
+	display: grid;
+    row-gap: 20px;
+
+	@include media(xl) {
+		column-gap: 20px;
+		grid-template-columns: [grid-start] repeat(12, 1fr) [grid-end];
+	}
+
+	@include media(lg) {
+		column-gap: 20px;
+		grid-template-columns: [grid-start] repeat(12, 1fr) [grid-end];
+	}
+
+	@include media(md) {
+		column-gap: 16px;
+		grid-template-columns: [grid-start] repeat(12, 1fr) [grid-end];
+	}
+
+	@include media(sm) {
+		column-gap: 9px;
+		grid-template-columns: [grid-start] repeat(6, 1fr) [grid-end];
+	}
+}

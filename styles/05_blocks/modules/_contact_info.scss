@@ -3,5 +3,9 @@
         margin-bottom: 4px;
         font-size: 18px;
         font-weight: 600;
+
+        @include media(sm) {
+            font-size: 16px;
+        }
     }
 }

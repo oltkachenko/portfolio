@@ -9,6 +9,10 @@
     .h2 {
         font-size: 32px;
         font-weight: 700;
+
+        @include media(sm) {
+            font-size: 28px;
+        }
     }
 
     h3,

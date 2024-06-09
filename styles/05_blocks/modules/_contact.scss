@@ -1,0 +1,50 @@
+.contact {
+    @include g-grid;
+
+    grid-column: grid-start / grid-end;
+    padding: 40px 0;
+    align-items: center;
+
+    @include media(md) {
+        align-items: flex-start;
+    }
+
+    &-form {
+        @include media(md-up) {
+            grid-column: span 6;
+        }
+
+        @include media(sm) {
+            grid-column: grid-start / grid-end;
+        }
+    }
+
+    &-info {
+        @include media(lg-up) {
+            grid-column: 8 / 12;
+        }
+
+        @include media(md) {
+            grid-column: 8 / grid-end;
+        }
+
+        @include media(sm) {
+            grid-column: grid-start / grid-end;
+        }
+    }
+
+    &-title {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    &-body {
+        margin-bottom: 32px;
+    }
+
+    &-tiles {
+        display: grid;
+        gap: 16px;
+    }
+}

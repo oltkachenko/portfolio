@@ -1,0 +1,20 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    min-width: $global-content-width-min;
+    overflow-y: scroll;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: black;
+}
+
+html {
+    background: white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+    scroll-behavior: smooth;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}

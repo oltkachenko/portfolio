@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:string';
+
+@mixin media($query) {
+    $__query: null;
+
+    @each $type in $query {
+        @if map.has-key($media, $type) {
+            $__query: list.append($__query, string.unquote(map.get($media, $type)), comma);
+        } @else {
+            @warn $type
+        }
+    }
+
+    @media #{$__query} {
+        @content
+    }
+}
