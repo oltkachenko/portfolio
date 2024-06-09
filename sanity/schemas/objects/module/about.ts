@@ -74,8 +74,7 @@ export default defineField({
     ],
     preview: {
         select: {
-            title: 'title',
-            url: 'url',
+            title: 'title'
         },
         prepare(selection) {
             const {title} = selection
