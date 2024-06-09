@@ -1,0 +1,48 @@
+button,
+input,
+select,
+textarea {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+    -webkit-appearance: button
+}
+
+input[type=checkbox],
+input[type=radio] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+input[type=checkbox] {
+    vertical-align: baseline
+}
+
+button[disabled],
+input[disabled] {
+    cursor: default
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: none;
+    padding: 0
+}
+
+button:-moz-focusring,
+input:-moz-focusring {
+    outline: none !important
+}
+
+input::-webkit-inner-spin-button {
+    display: none
+}
+
+input::-ms-clear {
+    display: none
+}

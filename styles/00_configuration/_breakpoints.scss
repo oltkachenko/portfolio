@@ -1,0 +1,16 @@
+$break-xl: 1367px;
+$break-lg: 1025px;
+$break-md: 768px;
+
+$media: (
+    sm: 'screen and (max-width: #{$break-md - 1})',
+    md: 'screen and (min-width: #{$break-md}) and (max-width: #{$break-lg - 1})',
+    lg: 'screen and (min-width: #{$break-lg}) and (max-width: #{$break-xl - 1})',
+    xl: 'screen and (min-width: #{$break-xl})',
+    md-up: 'screen and (min-width: #{$break-md})',
+    md-down: 'screen and (max-width: #{$break-lg - 1})',
+    lg-up: 'screen and (min-width: #{$break-lg})',
+    lg-down: 'screen and (max-width: #{$break-xl - 1})',
+);
+
+@import 'breakpoints_tools';
