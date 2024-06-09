@@ -1,4 +1,3 @@
-import BackToTop from "@/components/common/BackToTop";
 import Footer from "@/components/common/footer/Footer";
 import Header from "@/components/common/header/Header";
 
@@ -12,8 +11,7 @@ export default async function CoreLayout({
             <Header />
 
             {children}
-
-            <BackToTop />
+            
             <Footer />
         </>
     )

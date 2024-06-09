@@ -1,6 +1,6 @@
 import Copyright from "./Copyright";
 
-export default function Footer() {
+export default async function Footer() {
     return (
         <footer className="footer">
             <div className="footer-inner">
