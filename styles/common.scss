@@ -3,7 +3,6 @@
 @import '03_base/general';
 
 @import '05_blocks/forms/form';
-@import '05_blocks/forms/combo-menu';
 @import '05_blocks/forms/form_field';
 
 @import '05_blocks/common/button';
@@ -13,6 +12,9 @@
 
 @import '05_blocks/header/header';
 @import '05_blocks/header/menu_bar';
+@import '05_blocks/header/hamburger_button';
+@import '05_blocks/header/main_navigation';
+@import '05_blocks/header/locale_switcher';
 
 @import '05_blocks/footer/footer';
 

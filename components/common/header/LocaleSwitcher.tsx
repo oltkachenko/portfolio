@@ -33,12 +33,12 @@ export default function LocaleSwitcher() {
     
     return (
         <div 
-            className={`combo ${isOpen ? 'open' : ''} ${isPending ? 'disabled' : ''}`}
+            className={`locale_switcher ${isOpen ? 'open' : ''} ${isPending ? 'disabled' : ''}`}
             onClick={() => setIsOpen(!isOpen)}
             ref={ref}
         >
             <div aria-controls="listbox1"
-                className="combo-input"
+                className="locale_switcher-input"
                 role="combobox"
             >
                 <ReactCountryFlag countryCode={locale.toUpperCase() === 'EN' ? 'GB' : locale.toUpperCase() || 'GB'}
@@ -48,10 +48,12 @@ export default function LocaleSwitcher() {
                         height: '15px',
                     }} 
                 />
-                {localeTitle}
+                <span className="locale_switcher-input_title">
+                    {localeTitle}
+                </span>
             </div>
             { isOpen && (
-                <div className="combo-menu"
+                <div className="locale_switcher-menu"
                     role="listbox"
                 >
                     {locales.map((cur) => (
@@ -59,7 +61,7 @@ export default function LocaleSwitcher() {
                             key={cur.id}
                             role="option"
                             data-value={cur.id}
-                            className={`combo-option ${locale === cur.id ? 'option-current' : ''}`} 
+                            className={`locale_switcher-option ${locale === cur.id ? 'option-current' : ''}`} 
                             onClick={onClick}
                         >
                             <ReactCountryFlag countryCode={cur.icon === 'EN' ? 'GB' : cur.icon || 'GB'}
