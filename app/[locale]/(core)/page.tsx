@@ -27,7 +27,7 @@ export default async function Home() {
             "language": locale
         }
     )
-    
+
     return (
         <main className="">
             {page.modules.map(moduleData => {

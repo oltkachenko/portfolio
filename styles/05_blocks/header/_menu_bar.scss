@@ -1,11 +1,20 @@
 .menu_bar {
     &-list{
-        display: flex;
+        @include media(lg-up) {
+            display: flex;
+        }
+    }
+
+    &-item {
+        @include media(md-down) {
+            border-bottom: 1px solid hsla(222, 47%, 14%, 0.1);
+        }
     }
 
     &-link {
         padding: 12px 20px;
         border-radius: 4px;
+        display: block;
 
         &:hover {
             background-color: rgba(172, 216, 170, 30%);

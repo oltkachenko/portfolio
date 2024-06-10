@@ -1,0 +1,11 @@
+.hamburger_button {
+    order: -1;
+
+    @include media(lg-up) {
+        display: none;
+    }
+
+    &-text {
+        display: none;
+    }
+}
