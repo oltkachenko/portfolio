@@ -18,7 +18,7 @@ export default defineField({
         defineField({
             name: 'body',
             title: 'Body',
-            type: 'text'
+            type: 'body'
         }),
         // Contact info
         defineField({

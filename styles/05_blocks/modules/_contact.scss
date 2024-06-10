@@ -34,9 +34,10 @@
     }
 
     &-title {
-        font-size: 28px;
+        font-size: 32px;
+        color: #29a587;
         font-weight: 700;
-        margin-bottom: 8px;
+        grid-column: grid-start / grid-end;
     }
 
     &-body {

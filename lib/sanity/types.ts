@@ -62,7 +62,7 @@ export type SanityModuleContact = {
     _key?: string;
     _type: "module.contact";
     title: string;
-    body: string;
+    body: PortableTextBlock[];
     contactInfo: SanityContactInfo[]
 }
 
