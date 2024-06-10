@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import GridLayout from './common/GridLayout';
 import type { SanityModuleContact } from '@/lib/sanity';
 import ContactInfo from './modules/ContactInfo';
+import PortableText from './portableText/PortableText';
 
 interface FormStatus {
     message: string;
@@ -53,6 +54,8 @@ export default function ContactForm({formTranslation, contact}: Props) {
     return (
         <GridLayout>
             <div className='contact'>
+                <h2 className='contact-title'>{contact.title}</h2>
+                
                 <form 
                     onSubmit={handleSubmit((data) => onSubmit(data))}
                     className='form contact-form'
@@ -132,8 +135,7 @@ export default function ContactForm({formTranslation, contact}: Props) {
                 </form>
 
                 <div className='contact-info'>
-                    <h4 className='contact-title'>{contact.title}</h4>
-                    <p className='contact-body'>{contact.body}</p>
+                    <PortableText blocks={contact.body} className='contact-body'/>
                     
                     {contact.contactInfo && (
                         <div className='contact-tiles'>
