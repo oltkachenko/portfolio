@@ -1,0 +1,78 @@
+.main_navigation {
+    @include media(md-down) {
+        position: fixed;
+        visibility: hidden;
+        z-index: 1;
+    }
+
+    &::before {
+        background-color: rgba(0, 0, 0, .4);
+        bottom: 0;
+        content: "";
+        left: 0;
+        opacity: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transition: cubic-bezier(0.3, 0.46, 0.45, 0.94) .5s;
+        transition-property: visibility, opacity;
+        visibility: hidden;
+        z-index: 16;
+    }
+
+    &.open::before {
+        opacity: 1;
+        transition: none;
+        visibility: visible;
+    }
+
+    &-dialog {
+        @include media(md-down) {
+            background-color: #fff;
+            bottom: 0;
+            height: 100%;
+            left: 0;
+            max-width: 400px;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            transform: translateX(-100%);
+            transition-property: transform;
+            transition: cubic-bezier(0.3, 0.46, 0.45, 0.94) .5s;
+            visibility: hidden;
+            width: 80vw;
+            z-index: 16;
+        }
+    
+        &.open {
+            @include media(md-down) {
+                box-shadow: 0 3px 15px rgba(0, 0, 0, .35);
+                transform: translateX(0);
+                transition: cubic-bezier(0.3, 0.46, 0.45, 0.94) .5s;
+                visibility: visible;
+            }
+        }
+    }
+
+    &-header {
+        background: rgba(#FFE6E8, 0.5);
+        height: 74px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 0 20px;
+
+        @include media(lg-up) {
+            display: none;
+        }
+    }
+
+    &-close {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+}

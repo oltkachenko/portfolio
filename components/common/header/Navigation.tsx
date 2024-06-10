@@ -1,68 +1,47 @@
-import { client } from "@/sanity/lib/client"
-import Link from "next/link"
-import { getLocale } from "next-intl/server"
-import { NAVIGATION } from "@/queries/fragments/navigation"
-import type { SanityNavigation } from "@/lib/sanity"
+'use client'
 
-export default async function Navigation() {
-    const locale = await getLocale()
-    const navigation = await client.fetch<SanityNavigation>(NAVIGATION, {
-        language: locale
-    })
+import { useEffect, useState } from "react"
+import { MdOutlineClose } from "react-icons/md";
+
+export default function Navigation({
+    children
+}: Readonly<{
+    children: React.ReactNode;
+}>) {
+    const [isOpen, setIsOpen] = useState(false)
+
+    useEffect(() => {
+        document.body.classList.toggle('modal-open', isOpen);
+    }, [isOpen])
     
-    const renderLinks = navigation.menuLinks.map((link: any) => {
-        if (link._type === "pages") {
-            return (
-                <li className="menu_bar-item" key={link._key}>
-                    <Link 
-                        className="menu_bar-link" 
-                        href={link.collectionPages?.slug || '/'}
-                    >
-                        {link.collectionPages.title}
-                    </Link>
-                </li>
-            )
-        }
-        if (link._type === "linkExternal") {
-            return (
-                <li className="menu_bar-item" key={link._key}>
-                    <Link 
-                        className="menu_bar-link" 
-                        href={link.url}
-                        rel="noreferrer"
-                        target={link.newWindow ? "_blank" : "_self"}
-                    >
-                        {link.title}
-                    </Link>
-                </li>
-            );
-        }
-
-        if (link._type === "linkInternal") {
-            if (!link.slug) {
-                return null;
-            }
-    
-            return (
-                <li className="menu_bar-item" key={link._key}>
-                    <Link 
-                        className="menu_bar-link" 
-                        href={link.slug}
-                    >
-                        {link.title}
-                    </Link>
-                </li>
-            );
-        }
-
-        return null
-    });
-        
     return (
-        <nav className="menu_bar">
-            <ul className="menu_bar-list">
-                {renderLinks}
-            </ul>
-        </nav>
+        <>
+            <div 
+                className="hamburger_button"
+                title="Show navigation"
+                onClick={() => setIsOpen(!isOpen)}
+            >
+                <svg width="28" height="20" viewBox="0 0 28 20" focusable="false">
+                    <path fillRule="evenodd" fill="currentColor" d="M0 0h28v2H0zm0 9h28v2H0zm0 9h28v2H0z"></path>
+                </svg>
+
+                <span className="hamburger_button-text">Show navigation</span>
+            </div>
+
+            <div className={`main_navigation ${isOpen ? 'open' : ''}`}>
+                <div className={`main_navigation-dialog ${isOpen ? 'open' : ''}`}>
+                    <div className="main_navigation-header">
+                        <span 
+                            className="main_navigation-close"
+                            onClick={() => setIsOpen(!isOpen)}
+                        >
+                            <MdOutlineClose size={24} />
+                        </span>
+                    </div>
+
+                    {children}
+                </div>
+            </div>
+        </>
     )
 }

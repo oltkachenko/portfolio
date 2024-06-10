@@ -1,5 +1,6 @@
 import LocaleSwitcher from "./LocaleSwitcher";
 import Logo from "./Logo";
+import MenuBar from "./MenuBar";
 import Navigation from "./Navigation";
 
 export default function Header() {
@@ -8,7 +9,9 @@ export default function Header() {
             <div className="header-inner">
                 <Logo />
                 
-                <Navigation  />
+                <Navigation>
+                    <MenuBar/>
+                </Navigation>
 
                 <LocaleSwitcher />
             </div>
