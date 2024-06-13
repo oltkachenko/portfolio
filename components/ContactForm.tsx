@@ -64,11 +64,15 @@ export default function ContactForm({formTranslation, contact}: Props) {
 
                     <div className='form-line'>
                         <div className='form_field'>
-                            <label className='form_field-label'>
+                            <label 
+                                className='form_field-label'
+                                htmlFor="form_contact_name"
+                            >
                                 <span className='form_field-required'>*</span>
                                 {formTranslation.labelName}
                             </label>
                             <input 
+                                id='form_contact_name'
                                 className='form_field-input'
                                 {...register('name', { 
                                     required: true 
@@ -78,11 +82,15 @@ export default function ContactForm({formTranslation, contact}: Props) {
                         </div>
                         
                         <div className='form_field'>
-                            <label className='form_field-label'>
+                            <label 
+                                className='form_field-label'
+                                htmlFor="form_contact_email"
+                            >
                                 <span className='form_field-required'>*</span>
                                 {formTranslation.labelEmail}
                             </label>
-                            <input 
+                            <input
+                                id='form_contact_email'
                                 className='form_field-input'
                                 {...register('email', { 
                                     required: true, 
@@ -95,11 +103,15 @@ export default function ContactForm({formTranslation, contact}: Props) {
 
                     
                     <div className='form_field'>
-                        <label className='form_field-label'>
+                        <label 
+                            className='form_field-label'
+                            htmlFor="form_contact_subject"
+                        >
                             <span className='form_field-required'>*</span>
                             {formTranslation.labelSubject}
                         </label>
-                        <input 
+                        <input
+                            id='form_contact_subject'
                             className='form_field-input'
                             {...register('subject', { 
                                 required: true 
@@ -109,11 +121,15 @@ export default function ContactForm({formTranslation, contact}: Props) {
                     </div>
 
                     <div className='form_field'>
-                        <label className='form_field-label'>
+                        <label 
+                            className='form_field-label'
+                            htmlFor="form_contact_message"
+                        >
                             <span className='form_field-required'>*</span>
                             {formTranslation.labelMessage}
                         </label>
                         <textarea
+                            id='form_contact_message'
                             className='form_field-textarea'
                             {...register("message", { 
                                 required: true, 
