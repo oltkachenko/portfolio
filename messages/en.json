@@ -16,5 +16,9 @@
             "messageSent": "Message was successfully submitted",
             "failed": "Failed to send a message"
         }
+    },
+    "Logo": {
+        "title": "Home page",
+        "label": "OT logo"
     }
 }

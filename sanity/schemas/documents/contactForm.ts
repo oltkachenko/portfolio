@@ -38,6 +38,18 @@ export default defineType({
             title: 'Message',
             type: 'text',
             validation: (rule) => rule.required(),
+        }),
+        defineField({
+            name: 'date',
+            title: 'Date & time',
+            type: 'string',
+            readOnly: true
+        }),
+        defineField({
+            name: 'locale',
+            title: 'Locale',
+            type: 'string',
+            readOnly: true
         })
     ]
 })

@@ -37,29 +37,24 @@ export default function LocaleSwitcher() {
             onClick={() => setIsOpen(!isOpen)}
             ref={ref}
         >
-            <div aria-controls="listbox1"
-                className="locale_switcher-input"
-                role="combobox"
-            >
+            <div className="locale_switcher-input">
                 <ReactCountryFlag countryCode={locale.toUpperCase() === 'EN' ? 'GB' : locale.toUpperCase() || 'GB'}
                     svg
                     style={{
                         width: '20px',
                         height: '15px',
-                    }} 
+                    }}
+                    alt={localeTitle}
                 />
                 <span className="locale_switcher-input_title">
                     {localeTitle}
                 </span>
             </div>
             { isOpen && (
-                <div className="locale_switcher-menu"
-                    role="listbox"
-                >
+                <div className="locale_switcher-menu">
                     {locales.map((cur) => (
                         <div 
                             key={cur.id}
-                            role="option"
                             data-value={cur.id}
                             className={`locale_switcher-option ${locale === cur.id ? 'option-current' : ''}`} 
                             onClick={onClick}
@@ -69,7 +64,8 @@ export default function LocaleSwitcher() {
                                 style={{
                                     width: '20px',
                                     height: '15px',
-                                }} 
+                                }}
+                                alt={cur.title}
                             />
                             {cur.title}
                         </div>
