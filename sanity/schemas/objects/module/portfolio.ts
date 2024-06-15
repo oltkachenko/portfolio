@@ -6,13 +6,34 @@ export default defineField({
     title: 'Portfolio',
     type: 'object',
     icon: ProjectsIcon,
+    groups: [
+        {name: 'general', title: 'General', default: true},
+        {name: 'styling', title: 'Style'}
+    ],
     fields: [
-        // Text
+        // Color
+        defineField({
+            name: 'backgroundColor',
+            title: 'Background Color',
+            type: 'simplerColor',
+            group: 'styling'
+        }),
+        // Title
         defineField({
             name: 'title',
             title: 'Title',
             description: 'This field is the title of about section.',
             type: 'string',
+            group: 'general'
+        }),
+        // Subtitle
+        defineField({
+            name: 'subtitle',
+            title: 'Subtitle',
+            description: 'This field is the subtitle of module section.',
+            type: 'text',
+            rows: 2,
+            group: 'general'
         }),
         // Services List
         defineField({
@@ -20,6 +41,7 @@ export default defineField({
             title: 'Projects',
             description: 'Projects list',
             type: 'array',
+            group: 'general',
             of: [
                 {
                     type: 'reference',

@@ -1,5 +1,4 @@
 .portfolio {
-    background-color: rgba(172, 216, 170, 30%);
     padding: 40px 0;
 
     &-heading {
@@ -15,5 +14,9 @@
 
     &-subtitle {
         margin-top: 16px;
+    }
+
+    &-content {
+        @include g-grid;
     }
 }

@@ -6,25 +6,39 @@ export default defineField({
     title: 'Contact Form',
     type: 'object',
     icon: EnvelopeIcon,
+    groups: [
+        {name: 'general', title: 'General', default: true},
+        {name: 'styling', title: 'Style'}
+    ],
     fields: [
+        // Color
+        defineField({
+            name: 'backgroundColor',
+            title: 'Background Color',
+            type: 'simplerColor',
+            group: 'styling'
+        }),
         // Text
         defineField({
             name: 'title',
             title: 'Title',
             description: 'This field is the title of about section.',
-            type: 'string'
+            type: 'string',
+            group: 'general'
         }),
         // Body
         defineField({
             name: 'body',
             title: 'Body',
-            type: 'body'
+            type: 'body',
+            group: 'general'
         }),
         // Contact info
         defineField({
             name: 'contactInfo',
             title: 'Contact Info',
             type: 'array',
+            group: 'general',
             of: [
                 {
                     type: 'reference',

@@ -6,13 +6,25 @@ export default defineField({
     title: 'Services',
     type: 'object',
     icon: CogIcon,
+    groups: [
+        {name: 'general', title: 'General', default: true},
+        {name: 'styling', title: 'Style'}
+    ],
     fields: [
+        // Color
+        defineField({
+            name: 'backgroundColor',
+            title: 'Background Color',
+            type: 'simplerColor',
+            group: 'styling'
+        }),
         // Text
         defineField({
             name: 'title',
             title: 'Title',
             description: 'This field is the title of module section.',
-            type: 'string'
+            type: 'string',
+            group: 'general'
         }),
         // Subtitle
         defineField({
@@ -20,7 +32,8 @@ export default defineField({
             title: 'Subtitle',
             description: 'This field is the subtitle of module section.',
             type: 'text',
-            rows: 2
+            rows: 2,
+            group: 'general'
         }),
         // Link
         defineField({
@@ -28,6 +41,7 @@ export default defineField({
             title: 'Link',
             description: 'Set list of links',
             type: 'array',
+            group: 'general',
             of: [{type: 'linkInternal'}, {type: 'linkExternal'}],
             validation: (rule) => rule.max(2),
         }),
@@ -37,6 +51,7 @@ export default defineField({
             title: 'Services',
             description: 'Services list',
             type: 'array',
+            group: 'general',
             of: [
                 {
                     type: 'reference',

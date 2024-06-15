@@ -6,6 +6,7 @@ import {visionTool} from '@sanity/vision'
 import {defineConfig, isKeyedObject, type AssetSource} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {documentInternationalization} from '@sanity/document-internationalization'
+import { simplerColorInput } from 'sanity-plugin-simpler-color-input'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {apiVersion, dataset, projectId} from './sanity/env'
@@ -71,6 +72,17 @@ export default defineConfig({
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
+    simplerColorInput({
+        defaultColorFormat: 'rgba',
+        defaultColorList: [
+          { label: 'Seashell', value: '#FBF1EE' },
+          { label: 'Celadon', value: 'rgba(172, 216, 170, 0.3)' }, 
+          { label: 'Brand', value: '#ca786d' },
+          { label: 'Accent', value: '#626754' },
+          { label: 'Custom...', value: 'custom' },
+        ],
+        enableSearch: true,
+    })
   ],
   form: {
     file: {

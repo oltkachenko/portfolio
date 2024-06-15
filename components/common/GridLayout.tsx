@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { type CSSProperties } from 'react'
 
 export default function GridLayout({
-    children
+    children,
+    style
 }: Readonly<{
-    children: React.ReactNode;
+    children: React.ReactNode,
+    style?: React.CSSProperties 
 }>) {
     return (
-        <div className="grid_layout">
+        <div className="grid_layout" style={style}>
             <div className="grid_layout-content">
                 {children}
             </div>

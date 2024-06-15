@@ -37,6 +37,5 @@ export const schema: { types: SchemaTypeDefinition[] } = {
         modulePortfolio,
         body,
         contactInfo,
-
     ]
 }

@@ -30,6 +30,7 @@
     "sanity": "^3.42.1",
     "sanity-plugin-internationalized-array": "^2.0.0",
     "sanity-plugin-media": "^2.2.5",
+    "sanity-plugin-simpler-color-input": "^2.2.2",
     "styled-components": "^6.1.11"
   },
   "devDependencies": {
