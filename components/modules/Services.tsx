@@ -5,7 +5,7 @@ import type { SanityModuleServices } from '@/lib/sanity'
 
 export default async function Services(services: SanityModuleServices) {
     return (
-        <GridLayout style={{"--bg-layout-color": services.backgroundColor.value} as React.CSSProperties}>
+        <GridLayout style={{"--bg-layout-color": services.backgroundColor?.value} as React.CSSProperties}>
             <section className="services">
                 <div className="services-heading">
                     <h2 className="services-title">{services.title}</h2>

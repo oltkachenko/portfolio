@@ -10,7 +10,7 @@ export default function Portfolio(portfolio: SanityModulePortfolio) {
     console.log(portfolio);
     
     return (
-        <GridLayout style={{"--bg-layout-color": portfolio.backgroundColor.value} as React.CSSProperties}>
+        <GridLayout style={{"--bg-layout-color": portfolio.backgroundColor?.value} as React.CSSProperties}>
             <section className="portfolio">
                 <div className="portfolio-heading">
                     <h2 className="portfolio-title">{portfolio.title}</h2>
