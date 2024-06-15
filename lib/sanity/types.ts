@@ -27,12 +27,14 @@ export type SanityModule =
     | SanityModuleServices
     | SanityModuleAbout
     | SanityModuleContact
+    | SanityModulePortfolio
 
 export type SanityModuleCallout = {
     _key?: string;
     _type: "module.callout";
     link: SanityLink;
     text: string;
+    backgroundColor: SanityColorInput;
 };
 
 export type SanityModuleServices = {
@@ -41,7 +43,8 @@ export type SanityModuleServices = {
     links: SanityLink;
     title: string;
     subtitle: string;
-    servicesList: (SanityService)[]
+    servicesList: (SanityService)[];
+    backgroundColor: SanityColorInput;
 };
 
 export type SanityModuleAbout = {
@@ -52,6 +55,7 @@ export type SanityModuleAbout = {
     image: SanityAssetImage;
     body: PortableTextBlock[];
     contactInfo: SanityContactInfo[];
+    backgroundColor: SanityColorInput;
     file: {
         description: string;
         fileUrl: string;
@@ -63,7 +67,17 @@ export type SanityModuleContact = {
     _type: "module.contact";
     title: string;
     body: PortableTextBlock[];
-    contactInfo: SanityContactInfo[]
+    contactInfo: SanityContactInfo[];
+    backgroundColor: SanityColorInput;
+}
+
+export type SanityModulePortfolio = {
+    _key?: string;
+    _type: "module.portfolio";
+    title: string;
+    subtitle?: string
+    projectsList: SanityProject[];
+    backgroundColor: SanityColorInput;
 }
 
 export type SanityLink = SanityLinkExternal | SanityLinkInternal;
@@ -94,6 +108,19 @@ export type SanityService = {
         value: string
     },
     image: SanityAssetImage
+};
+
+export type SanityProject = {
+    _id: string;
+    _type: 'project';
+    title: string;
+    slug: string;
+    role: string;
+    description: PortableTextBlock[];
+    skills: string
+    images: {
+        image: SanityAssetImage
+    }[]
 };
 
 export type SanitySeo = {
@@ -127,3 +154,8 @@ export type SanityContactInfo = {
     value: string;
     type: 'tel' | 'email' | 'text' | null;
 }
+
+export type SanityColorInput = {
+    label: string,
+    value: string,
+};
