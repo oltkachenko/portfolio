@@ -27,6 +27,7 @@ export type SanityModule =
     | SanityModuleServices
     | SanityModuleAbout
     | SanityModuleContact
+    | SanityModulePortfolio
 
 export type SanityModuleCallout = {
     _key?: string;
@@ -66,6 +67,13 @@ export type SanityModuleContact = {
     contactInfo: SanityContactInfo[]
 }
 
+export type SanityModulePortfolio = {
+    _key?: string;
+    _type: "module.portfolio";
+    title: string;
+    projectsList: SanityProject[];
+}
+
 export type SanityLink = SanityLinkExternal | SanityLinkInternal;
 
 export type SanityLinkExternal = {
@@ -94,6 +102,19 @@ export type SanityService = {
         value: string
     },
     image: SanityAssetImage
+};
+
+export type SanityProject = {
+    _id: string;
+    _type: 'project';
+    title: string;
+    slug: string;
+    role: string;
+    description: PortableTextBlock[];
+    skills: string
+    images: {
+        image: SanityAssetImage
+    }[]
 };
 
 export type SanitySeo = {

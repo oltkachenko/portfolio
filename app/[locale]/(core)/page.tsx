@@ -1,5 +1,6 @@
 import ContactForm from "@/components/ContactForm";
 import About from "@/components/modules/About";
+import Portfolio from "@/components/modules/Portfolio";
 import Services from "@/components/modules/Services";
 import getTranslation from "@/helpers/getTranslation";
 import type { SanityHomePage } from "@/lib/sanity";
@@ -41,6 +42,10 @@ export default async function Home() {
 
                 if(moduleData._type === 'module.contact') {                    
                     return <ContactForm key={moduleData._key} contact={moduleData} formTranslation={translations}/>
+                }
+
+                if(moduleData._type === 'module.portfolio') { 
+                    return <Portfolio key={moduleData._key} {...moduleData}/>
                 }
             })}
         </main>

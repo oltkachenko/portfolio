@@ -27,7 +27,7 @@ const DOCUMENT_TYPES_IN_STRUCTURE = [
     'settings',
     "footer",
     "navigation",
-    'projects',
+    'project',
     'services',
     'translation.metadata',
     'media.tag',

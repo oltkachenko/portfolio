@@ -35,7 +35,7 @@ export default defineConfig({
     documentInternationalization({
         // Required configuration
         supportedLanguages: LANGUAGES,
-        schemaTypes: ['page', 'navigation', 'home'],
+        schemaTypes: ['page', 'navigation', 'home', 'project'],
     }),
     internationalizedArray({
         languages: LANGUAGES,

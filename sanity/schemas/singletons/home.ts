@@ -72,6 +72,7 @@ export default defineType({
                 {type: 'module.about'},
                 {type: 'module.services'},
                 {type: 'module.contact'},
+                {type: 'module.portfolio'},
                 {type: 'module.callout'},
             ]
         }),
