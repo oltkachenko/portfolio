@@ -10,8 +10,14 @@ export const LINK_INTERNAL = groq`
         (_type == "home") => {
             "slug": "/",
         },
+        (_type == "project") => {
+            "slug": '/portfolio/' + slug.current,
+        },
         (_type == "page") => {
-            "slug": "/page/" + slug.current,
+            "slug": select(
+                pageType != 'page-type' && pageType != null => '/' + slug.current,
+                '/page/' + slug.current
+            ),
         }
     }
 `;

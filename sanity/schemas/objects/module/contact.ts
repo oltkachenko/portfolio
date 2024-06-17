@@ -8,7 +8,9 @@ export default defineField({
     icon: EnvelopeIcon,
     groups: [
         {name: 'general', title: 'General', default: true},
-        {name: 'styling', title: 'Style'}
+        {name: 'heading', title: 'Heading'},
+        {name: 'footer', title: 'Footer'},
+        {name: 'styling', title: 'Style'},
     ],
     fields: [
         // Color
@@ -18,13 +20,38 @@ export default defineField({
             type: 'simplerColor',
             group: 'styling'
         }),
-        // Text
+        // Title
         defineField({
             name: 'title',
             title: 'Title',
             description: 'This field is the title of about section.',
             type: 'string',
-            group: 'general'
+            group: 'heading'
+        }),
+        // Subtitle
+        defineField({
+            name: 'subtitle',
+            title: 'Subtitle',
+            description: 'This field is the subtitle of module section.',
+            type: 'text',
+            rows: 2,
+            group: 'heading'
+        }),
+        // Heading Alignment
+        defineField({
+            name: 'headingAlignment',
+            title: 'Heading Alignment',
+            type: 'string',
+            initialValue: 'center',
+            options: {
+                list: [
+                    {title: 'Left', value: 'left'},
+                    {title: 'Center', value: 'center'},
+                    {title: 'Right', value: 'right'}
+                ],
+                layout: 'dropdown'
+            },
+            group: 'heading'
         }),
         // Body
         defineField({

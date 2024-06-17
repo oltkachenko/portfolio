@@ -35,6 +35,21 @@ export default defineField({
             weak: true,
             validation: (rule) => rule.required(),
             to: PAGE_REFERENCES,
+            options: {
+                    disableNew: true,
+                    filter: ({document}) => {
+                        let filterType: string[] = []
+
+                        PAGE_REFERENCES.map(page => {
+                            filterType.push(`_type == "${page.type}"`)
+                        })
+                        
+                        return {
+                            filter: `(${filterType.join(' || ')}) && language == $language`,
+                            params: { language: document.language },
+                        }
+                    },
+            },
         },
     ],
     preview: {
