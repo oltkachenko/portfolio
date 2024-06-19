@@ -11,6 +11,13 @@ export default defineType({
         { name: 'seo', title: 'SEO', icon: DocumentIcon },
     ],
     fields: [
+        defineField({
+            type: 'string',
+            name: 'title',
+            title: 'Title',
+            group: 'general',
+            validation: (rule) => rule.required(),
+        }),
         // Modules
         defineField({
             name: 'modules',

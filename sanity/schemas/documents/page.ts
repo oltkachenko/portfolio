@@ -1,4 +1,5 @@
-import { DocumentIcon, ImageIcon } from '@sanity/icons'
+import { isUniqueOtherThanLanguage } from '@/sanity/utils/validateSlug'
+import { DocumentIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
@@ -20,7 +21,7 @@ export default defineType({
             options: {
                 source: 'title',
                 maxLength: 96,
-                isUnique: (value, context) => context.defaultIsUnique(value, context),
+                isUnique: isUniqueOtherThanLanguage,
             },
             validation: (rule) => rule.required(),
         }),

@@ -1,12 +1,11 @@
-import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link"
+import { Link } from "@/navigation";
+import { useTranslations } from "next-intl";
 
 export default function Logo() {
-    const locale = useLocale();
     const t = useTranslations('Logo');
 
     return (
-        <Link href={`/${locale}`} title={t('title')}>
+        <Link href={`/`} title={t('title')}>
             <svg viewBox="0 0 100 100" width="50" height="50" aria-label={t('label')}>
                 <g transform="matrix(1.231527, 0, 0, 1.231527, -11.576344, -11.576344)" fill="#ACD8AA">
                     <circle cx="50" cy="50" r="17.8"></circle>

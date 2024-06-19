@@ -17,6 +17,7 @@ export const SHOPIFY_DOCUMENT_TYPES = ['product', 'productVariant', 'collection'
 export const PAGE_REFERENCES = [
   {type: 'project'},
   {type: 'page'},
+  {type: 'home'},
 ]
 
 // API version to use when using the Sanity client within the studio

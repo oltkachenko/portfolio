@@ -1,13 +1,18 @@
+import SessionStorage from '@/components/SessionStorage';
 import GridLayout from '@/components/common/GridLayout'
 import type { SanityProject } from '@/lib/sanity';
 import { PROJECT_SLUG_QUERY } from '@/queries/slugPages/projects';
 import { client } from '@/sanity/lib/client';
+import { notFound } from 'next/navigation';
 
 type Props = {
     params: { slug: string, locale: string };
 };
 
 export default async function ProjectsSlugPage({ params }: Props) {
+    console.log(params);
+    
+
     // const [page, setPage] = useState(null)
     // const params = useParams()
 
@@ -18,14 +23,17 @@ export default async function ProjectsSlugPage({ params }: Props) {
     //             slug: params.slug,
     //             language: params.locale
     //         }
-    //     ).then((res) => console.log(res))
+    //     ).then((res) => setPage(res))
     // }, [params.slug, params.locale])
 
-    const page = await client.fetch<SanityProject>(
+    const project = await client.fetch<SanityProject>(
         PROJECT_SLUG_QUERY, 
         {
             language: params.locale,
-            slug: params.slug
+            slug: params.slug,
+        },
+        {
+            cache: 'force-cache'
         }
     )
 
@@ -39,12 +47,19 @@ export default async function ProjectsSlugPage({ params }: Props) {
     //     )
     // ]);
 
-    console.log(page);
     
-
+    if (!project) {
+        return notFound()
+    }
+    
     return (
         <GridLayout>
-            {page && (page.title)}
+            portfolio slug, 
+            
+            {project?._translations && (
+                <SessionStorage data={project?._translations}/>
+
+            )}
         </GridLayout>
     )
 }

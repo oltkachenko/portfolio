@@ -87,8 +87,6 @@ export const pageStructure = (
             (listItem) => {
                 const singeltoneAndGroupItems: string[] = []
 
-                console.log(singeltoneAndGroupItems);
-                
                 typeDefArray.groupItems.map(groupItems => groupItems.items.map((item) => {
                     singeltoneAndGroupItems.push(item.name)
                 }))
