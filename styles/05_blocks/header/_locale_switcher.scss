@@ -4,7 +4,7 @@
     z-index: 0;
     cursor: pointer;
 
-    @include media(sm) {
+    @include media(md-down) {
         width: auto;
     }
 
@@ -99,7 +99,7 @@
     }
 
     &-input_title {
-        @include media(sm) {
+        @include media(md-down) {
             display: none;
         }
     }

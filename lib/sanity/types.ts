@@ -11,6 +11,7 @@ export interface SanityAssetImage extends Image {
 }
 
 export type SanityHomePage = {
+    title: string;
     modules: (SanityModule)[];
     seo: SanitySeo;
 };
@@ -124,7 +125,11 @@ export type SanityProject = {
     skills: string
     images: {
         image: SanityAssetImage
-    }[]
+    }[];
+    _translations: {
+        slug: string;
+        language: string
+    }
 };
 
 export type SanitySeo = {
@@ -141,14 +146,7 @@ export type SanityFooterCopyright = {
 export type SanityNavigation = {
     _id: string;
     _type: string;
-    menuLinks: (SanityLink | SanityNavigationPageLink)[]
-};
-
-export type SanityNavigationPageLink = {
-    _key: string;
-    _type: string;
-    title?: string;
-    collectionPages: SanityPage
+    menuLinks: SanityLink[]
 };
 
 export type SanityContactInfo = {

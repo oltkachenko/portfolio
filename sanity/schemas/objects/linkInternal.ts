@@ -13,8 +13,7 @@ export default defineField({
         {
             title: 'Title',
             name: 'title',
-            type: 'string',
-            validation: (rule) => rule.required(),
+            type: 'string'
         },
         {
             name: 'buttonStyle',
@@ -55,8 +54,6 @@ export default defineField({
     preview: {
         select: {
             reference: 'reference',
-            referenceProductTitle: 'reference.store.title',
-            referenceProductPriceRange: 'reference.store.priceRange',
             referenceTitle: 'reference.title',
             referenceType: 'reference._type',
             title: 'title',
@@ -64,14 +61,13 @@ export default defineField({
         prepare(selection) {
             const {
                 reference,
-                referenceProductTitle,
                 referenceTitle,
                 title,
             } = selection
 
             const subtitle = []
             if (reference) {
-                subtitle.push([`→ ${referenceTitle || referenceProductTitle || reference?._id}`])
+                subtitle.push([`→ ${referenceTitle || reference?._id}`])
             } else {
                 subtitle.push('(Nonexistent document reference)')
             }
@@ -79,7 +75,7 @@ export default defineField({
             return {
                 // media: image,
                 subtitle: subtitle.join(' '),
-                title,
+                title: title || referenceTitle,
             }
         },
     },

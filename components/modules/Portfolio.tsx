@@ -1,7 +1,7 @@
 import React from 'react'
 import GridLayout from '../common/GridLayout'
 import type { SanityModulePortfolio } from '@/lib/sanity'
-import Link from 'next/link';
+import {Link} from '@/navigation';
 import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa6';
 import Heading from './Heading';

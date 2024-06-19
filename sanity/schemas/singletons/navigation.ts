@@ -13,7 +13,7 @@ export default defineType({
             type: 'array',
             of: [
                 {
-                    name: 'pages',
+                    name: 'linkPage',
                     title: 'Page',
                     type: 'object',
                     icon: PackageIcon,
@@ -22,36 +22,38 @@ export default defineType({
                             name: 'title',
                             title: 'Title',
                             type: 'string',
+                            validation: (rule) => rule.required(),
                         },
                         {
-                            name: 'collectionPages',
-                            title: 'Collection Page',
-                            type: 'reference',
-                            description: 'Page from this collection will be listed',
-                            weak: true,
-                            to: [{type: 'page'}, {type: 'home'}],
+                            type: 'string',
+                            name: 'pageType',
+                            title: 'Page Type',
+                            initialValue: 'portfolio',
                             options: {
-                                filter: ({ document }) => {
-                                    return {
-                                        filter: 'language == $language || _type == "home"',
-                                        params: { 
-                                            language: document.language
-                                        },
-                                    }
-                                },
-                                disableNew: true,
+                                list: [
+                                    {title: 'Services', value: 'services'},
+                                    {title: 'Portfolio', value: 'portfolio'}
+                                ],
+                                layout: 'dropdown'
                             },
+                            validation: (rule) => rule.required(),
                         },
                     ],
                     preview: {
                         select: {
-                            customTitle: 'title',
-                            title: 'collectionPages.title',
+                            title: 'title',
+                            subtitle: 'pageType'
                         },
                         prepare(selection) {
-                            const {title, customTitle} = selection
+                            const {title, subtitle} = selection
+
+                            console.log(selection);
+                            
+                
                             return {
-                                title: customTitle || title
+                                // media: image,
+                                subtitle: `→ ${subtitle}`,
+                                title: title,
                             }
                         },
                     },

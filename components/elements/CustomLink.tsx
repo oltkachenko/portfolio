@@ -1,12 +1,15 @@
 import type { SanityLink } from '@/lib/sanity';
-import Link from 'next/link';
+import { getLocale } from 'next-intl/server';
+import { Link } from '@/navigation';
 import React, { type HTMLAttributes } from 'react'
 
 type Props = {
     link: SanityLink;
 } & HTMLAttributes<HTMLElement>;
 
-export default function CustomLink({ children, link, ...rest }: Props) {
+export default async function CustomLink({ children, link, ...rest }: Props) {
+    const locale = await getLocale();
+
     if (link._type === "linkExternal") {
         return (
             <Link 

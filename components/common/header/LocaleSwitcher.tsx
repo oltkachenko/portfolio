@@ -3,7 +3,7 @@
 import {useLocale} from 'next-intl';
 import { i18n } from '@/i18n.config';
 import { useRef, useState, useTransition, type MouseEvent } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import useOnClickOutside from '@/hooks/useOnClickOutside';
 import ReactCountryFlag from 'react-country-flag';
  
@@ -14,6 +14,49 @@ export default function LocaleSwitcher() {
     const router = useRouter();
     const locales = i18n.locales;
     const locale = useLocale();
+    const pathname = usePathname();
+
+
+//     // const pathname = usePathname()
+
+//         const regex = /^\/[en|ua]\S/;
+// var newstr = pathname.replace(regex, "");
+// console.log('new', newstr);
+
+
+//     const pathnameArray = pathname.split('/')
+
+//     if (pathnameArray[pathnameArray.length-1] === sessionData.data.find((loc: any)=> loc.language === 'en').slug) {
+//         console.log('test');
+//     }
+
+
+    
+
+    function rediretPath(nextLocale: string | undefined) {
+        const pathnameArray = pathname.split('/');
+
+        let path = pathnameArray?.slice(2, -1).join('/')
+
+
+
+        const translation111 = sessionStorage.getItem("translation");
+
+        let sessionData;
+        let sessionDataSlug;
+        if (translation111) {
+            sessionData = JSON.parse(translation111);
+
+            sessionDataSlug = sessionData.data.find((loc: any)=> loc.language === locale).slug
+        }
+
+        if (pathnameArray[pathnameArray.length-1] === sessionDataSlug) {
+            return `${path}/${sessionData.data.find((loc: any)=> loc.language === nextLocale).slug}`
+        }
+
+        return `/`
+    }
+    
 
     const localeTitle = locales.find(loc => locale === loc.id)?.title;
     
@@ -27,7 +70,7 @@ export default function LocaleSwitcher() {
         const nextLocale = event.target.dataset.value;
 
         startTransition(() => {
-            router.replace(`/${nextLocale}`);
+            router.replace(`/${nextLocale}/${rediretPath(nextLocale)}`);
         });
     }
     

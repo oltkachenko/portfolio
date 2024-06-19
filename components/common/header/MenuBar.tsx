@@ -1,28 +1,30 @@
 import { client } from "@/sanity/lib/client"
-import Link from "next/link"
 import { getLocale } from "next-intl/server"
 import { NAVIGATION } from "@/queries/fragments/navigation"
 import type { SanityNavigation } from "@/lib/sanity"
+import {Link} from "@/navigation"
 
 export default async function MenuBar() {
     const locale = await getLocale()
+    
     const navigation = await client.fetch<SanityNavigation>(NAVIGATION, {
         language: locale
     })
     
     const renderLinks = navigation.menuLinks.map((link: any) => {
-        if (link._type === "pages") {
+        if (link._type === "linkPage") {
             return (
                 <li className="menu_bar-item" key={link._key}>
                     <Link 
                         className="menu_bar-link" 
-                        href={link.collectionPages?.slug || '/'}
+                        href={link.slug}
                     >
-                        {link.collectionPages.title}
+                        {link.title}
                     </Link>
                 </li>
-            )
+            );
         }
+
         if (link._type === "linkExternal") {
             return (
                 <li className="menu_bar-item" key={link._key}>
@@ -38,11 +40,7 @@ export default async function MenuBar() {
             );
         }
 
-        if (link._type === "linkInternal") {
-            if (!link.slug) {
-                return null;
-            }
-    
+        if (link._type === "linkInternal" && link.slug) {   
             return (
                 <li className="menu_bar-item" key={link._key}>
                     <Link 
