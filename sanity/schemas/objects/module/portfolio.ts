@@ -8,7 +8,9 @@ export default defineField({
     icon: ProjectsIcon,
     groups: [
         {name: 'general', title: 'General', default: true},
-        {name: 'styling', title: 'Style'}
+        {name: 'heading', title: 'Heading'},
+        {name: 'footer', title: 'Footer'},
+        {name: 'styling', title: 'Style'},
     ],
     fields: [
         // Color
@@ -24,7 +26,7 @@ export default defineField({
             title: 'Title',
             description: 'This field is the title of about section.',
             type: 'string',
-            group: 'general'
+            group: 'heading'
         }),
         // Subtitle
         defineField({
@@ -33,9 +35,35 @@ export default defineField({
             description: 'This field is the subtitle of module section.',
             type: 'text',
             rows: 2,
-            group: 'general'
+            group: 'heading'
         }),
-        // Services List
+        // Heading Alignment
+        defineField({
+            name: 'headingAlignment',
+            title: 'Heading Alignment',
+            type: 'string',
+            initialValue: 'center',
+            options: {
+                list: [
+                    {title: 'Left', value: 'left'},
+                    {title: 'Center', value: 'center'},
+                    {title: 'Right', value: 'right'}
+                ],
+                layout: 'dropdown'
+            },
+            group: 'heading'
+        }),
+        // Link
+        defineField({
+            name: 'links',
+            title: 'Link',
+            description: 'Set list of links',
+            type: 'array',
+            group: 'footer',
+            of: [{type: 'linkInternal'}, {type: 'linkExternal'}],
+            validation: (rule) => rule.max(2),
+        }),
+        // Projects List
         defineField({
             name: 'projectsList',
             title: 'Projects',

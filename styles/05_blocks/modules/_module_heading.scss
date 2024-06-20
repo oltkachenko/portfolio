@@ -1,0 +1,22 @@
+.module_heading {
+    margin-bottom: 32px;
+    text-align: center;
+
+    &.m-left {
+        text-align: left;
+    }
+
+    &.m-right {
+        text-align: right;
+    }
+
+    &-title {
+        font-size: 32px;
+        color: #29a587;
+        font-weight: 700;
+    }
+
+    &-subtitle:not(:first-child) {
+        margin-top: 16px;
+    }
+}

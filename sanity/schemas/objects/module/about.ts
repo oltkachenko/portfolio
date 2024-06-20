@@ -8,17 +8,9 @@ export default defineField({
     icon: UserIcon,
     groups: [
         {name: 'general', title: 'General', default: true},
-        {name: 'download', title: 'Files'},
-        {name: 'styling', title: 'Style'}
+        {name: 'download', title: 'Files'}
     ],
     fields: [
-        // Color
-        defineField({
-            name: 'backgroundColor',
-            title: 'Background Color',
-            type: 'simplerColor',
-            group: 'styling'
-        }),
         // Text
         defineField({
             name: 'title',

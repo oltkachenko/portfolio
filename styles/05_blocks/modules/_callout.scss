@@ -1,12 +1,17 @@
-.portfolio {
+.callout {
     padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    
+    &.m-left {
+        align-items: flex-start;
+    }
 
-    &-content {
-        @include g-grid;
+    &.m-right {
+        align-items: flex-end;
     }
 
     &-actions {
-        padding: 32px 0 0;
         display: flex;
         gap: 20px;
         align-items: center;

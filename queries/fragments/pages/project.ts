@@ -16,5 +16,9 @@ export const PROJECT_PAGE = groq`
         "image": {
             ${IMAGE}
         },
-    }
+    },
+    "_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
+        "slug": slug.current,
+        language
+    },
 `;

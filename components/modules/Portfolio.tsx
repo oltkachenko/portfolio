@@ -1,23 +1,25 @@
 import React from 'react'
 import GridLayout from '../common/GridLayout'
 import type { SanityModulePortfolio } from '@/lib/sanity'
-import Link from 'next/link';
+import {Link} from '@/navigation';
 import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa6';
+import Heading from './Heading';
+import CustomLink from '../elements/CustomLink';
 
-export default function Portfolio(portfolio: SanityModulePortfolio) {
+interface Props {
+    portfolio: SanityModulePortfolio;
+}
 
-    console.log(portfolio);
-    
+export default function Portfolio({ portfolio }: Props) {   
     return (
         <GridLayout style={{"--bg-layout-color": portfolio.backgroundColor?.value} as React.CSSProperties}>
             <section className="portfolio">
-                <div className="portfolio-heading">
-                    <h2 className="portfolio-title">{portfolio.title}</h2>
-                    {portfolio.subtitle && (
-                        <p className="portfolio-subtitle">{portfolio.subtitle}</p>
-                    )}
-                </div>
+                <Heading data={{
+                    title: portfolio.title,
+                    subtitle: portfolio.subtitle,
+                    alignment: portfolio.headingAlignment
+                }} />
                 
                 <div className='portfolio-content'>
                     {portfolio.projectsList.map(project => (
@@ -45,6 +47,16 @@ export default function Portfolio(portfolio: SanityModulePortfolio) {
                         </div>
                     ))}
                 </div>
+
+                {portfolio.links && portfolio.links.length && (
+                    <div className='portfolio-actions'>
+                        {portfolio.links.map(link => (
+                            <CustomLink key={link._key} link={link} >
+                                {link.title}
+                            </CustomLink>
+                        ))}
+                    </div>
+                )}
             </section>
         </GridLayout>
     )

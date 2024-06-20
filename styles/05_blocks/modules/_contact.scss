@@ -1,12 +1,8 @@
 .contact {
-    @include g-grid;
-
-    grid-column: grid-start / grid-end;
     padding: 40px 0;
-    align-items: center;
 
-    @include media(md) {
-        align-items: flex-start;
+    &-content {
+        @include g-grid; 
     }
 
     &-form {
@@ -37,7 +33,6 @@
         font-size: 32px;
         color: #29a587;
         font-weight: 700;
-        grid-column: grid-start / grid-end;
     }
 
     &-body {

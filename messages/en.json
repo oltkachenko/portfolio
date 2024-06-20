@@ -20,5 +20,10 @@
     "Logo": {
         "title": "Home page",
         "label": "OT logo"
+    },
+    "NotFound": {
+        "title": "Page Not Found",
+        "subtitle": "Sorry, the page you are looking for was not found",
+        "buttonName": "Return to Homepage"
     }
 }

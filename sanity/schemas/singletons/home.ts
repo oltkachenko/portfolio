@@ -7,63 +7,18 @@ export default defineType({
     type: 'document',
     icon: HomeIcon,
     groups: [
-        {
-            name: 'seo',
-            title: 'SEO',
-            icon: DocumentIcon
-        },
+        { name: 'general', title: 'General', default: true },
+        { name: 'seo', title: 'SEO', icon: DocumentIcon },
     ],
     fields: [
         defineField({
-            name: 'title',
-            description: 'This field is the title of your personal website.',
-            title: 'Title',
             type: 'string',
+            name: 'title',
+            title: 'Title',
+            group: 'general',
             validation: (rule) => rule.required(),
         }),
-        defineField({
-            name: 'overview',
-            description:
-                'Used both for the <meta> description tag for SEO, and the personal website subheader.',
-            title: 'Description',
-            type: 'array',
-            of: [
-                // Paragraphs
-                defineArrayMember({
-                lists: [],
-                marks: {
-                    annotations: [
-                    {
-                        name: 'link',
-                        type: 'object',
-                        title: 'Link',
-                        fields: [
-                        {
-                            name: 'href',
-                            type: 'url',
-                            title: 'Url',
-                        },
-                        ],
-                    },
-                    ],
-                    decorators: [
-                    {
-                        title: 'Italic',
-                        value: 'em',
-                    },
-                    {
-                        title: 'Strong',
-                        value: 'strong',
-                    },
-                    ],
-                },
-                styles: [],
-                type: 'block',
-                }),
-            ],
-            validation: (rule) => rule.max(155).required(),
-        }),
-        // // Modules
+        // Modules
         defineField({
             name: 'modules',
             title: 'Modules',
@@ -74,7 +29,8 @@ export default defineType({
                 {type: 'module.contact'},
                 {type: 'module.portfolio'},
                 {type: 'module.callout'},
-            ]
+            ],
+            group: 'general'
         }),
         // SEO
         defineField({
@@ -84,7 +40,6 @@ export default defineType({
             group: 'seo',
         }),
         defineField({
-            // should match 'languageField' plugin configuration setting, if customized
             name: 'language',
             type: 'string',
             readOnly: true,
@@ -93,12 +48,12 @@ export default defineType({
     ],
     preview: {
         select: {
-            title: 'title',
+            language: 'language',
         },
-        prepare({ title }) {
+        prepare({ language }) {
             return {
                 subtitle: 'Home',
-                title,
+                title: 'Home ' + language,
             }
         },
     },

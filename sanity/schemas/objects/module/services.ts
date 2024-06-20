@@ -8,6 +8,8 @@ export default defineField({
     icon: CogIcon,
     groups: [
         {name: 'general', title: 'General', default: true},
+        {name: 'heading', title: 'Heading'},
+        {name: 'footer', title: 'Footer'},
         {name: 'styling', title: 'Style'}
     ],
     fields: [
@@ -18,13 +20,13 @@ export default defineField({
             type: 'simplerColor',
             group: 'styling'
         }),
-        // Text
+        // Title
         defineField({
             name: 'title',
             title: 'Title',
             description: 'This field is the title of module section.',
             type: 'string',
-            group: 'general'
+            group: 'heading'
         }),
         // Subtitle
         defineField({
@@ -33,7 +35,23 @@ export default defineField({
             description: 'This field is the subtitle of module section.',
             type: 'text',
             rows: 2,
-            group: 'general'
+            group: 'heading'
+        }),
+        // Heading Alignment
+        defineField({
+            name: 'headingAlignment',
+            title: 'Heading Alignment',
+            type: 'string',
+            initialValue: 'center',
+            options: {
+                list: [
+                    {title: 'Left', value: 'left'},
+                    {title: 'Center', value: 'center'},
+                    {title: 'Right', value: 'right'}
+                ],
+                layout: 'dropdown'
+            },
+            group: 'heading'
         }),
         // Link
         defineField({
@@ -41,7 +59,7 @@ export default defineField({
             title: 'Link',
             description: 'Set list of links',
             type: 'array',
-            group: 'general',
+            group: 'footer',
             of: [{type: 'linkInternal'}, {type: 'linkExternal'}],
             validation: (rule) => rule.max(2),
         }),
@@ -55,16 +73,7 @@ export default defineField({
             of: [
                 {
                     type: 'reference',
-                    to: [{type: 'services'}],
-                    //   options: {
-                    //     disableNew: true,
-                    //     filter: () => {
-                    //         return {
-                    //           filter: '_type == "services" && _id == $language',
-                    //           params: { language: '17db4f9c-6ced-4de2-b058-7a3134a1d7f9' },
-                    //         }
-                    //     },
-                    //   },
+                    to: [{type: 'services'}]
                 }
                 
             ],

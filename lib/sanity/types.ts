@@ -11,6 +11,7 @@ export interface SanityAssetImage extends Image {
 }
 
 export type SanityHomePage = {
+    title: string;
     modules: (SanityModule)[];
     seo: SanitySeo;
 };
@@ -32,18 +33,20 @@ export type SanityModule =
 export type SanityModuleCallout = {
     _key?: string;
     _type: "module.callout";
-    link: SanityLink;
-    text: string;
-    backgroundColor: SanityColorInput;
+    links: SanityLink[];
+    title: string;
+    subtitle: string;
+    alignment: string;
 };
 
 export type SanityModuleServices = {
     _key?: string;
     _type: "module.services";
-    links: SanityLink;
-    title: string;
-    subtitle: string;
-    servicesList: (SanityService)[];
+    links: SanityLink[];
+    title?: string;
+    subtitle?: string;
+    headingAlignment: string | null;
+    servicesList: SanityService[];
     backgroundColor: SanityColorInput;
 };
 
@@ -55,7 +58,6 @@ export type SanityModuleAbout = {
     image: SanityAssetImage;
     body: PortableTextBlock[];
     contactInfo: SanityContactInfo[];
-    backgroundColor: SanityColorInput;
     file: {
         description: string;
         fileUrl: string;
@@ -65,7 +67,9 @@ export type SanityModuleAbout = {
 export type SanityModuleContact = {
     _key?: string;
     _type: "module.contact";
-    title: string;
+    title?: string;
+    subtitle?: string;
+    headingAlignment: string | null;
     body: PortableTextBlock[];
     contactInfo: SanityContactInfo[];
     backgroundColor: SanityColorInput;
@@ -74,10 +78,12 @@ export type SanityModuleContact = {
 export type SanityModulePortfolio = {
     _key?: string;
     _type: "module.portfolio";
-    title: string;
+    title?: string;
     subtitle?: string
+    headingAlignment: string | null;
     projectsList: SanityProject[];
     backgroundColor: SanityColorInput;
+    links: SanityLink[];
 }
 
 export type SanityLink = SanityLinkExternal | SanityLinkInternal;
@@ -88,16 +94,15 @@ export type SanityLinkExternal = {
     newWindow?: boolean;
     url: string;
     title: string;
-    buttonStyle?: string
+    buttonStyle?: 'link-style' | 'button-style'
 };
   
 export type SanityLinkInternal = {
     _key: string;
     _type: "linkInternal";
-    documentType: string;
     slug?: string;
     title: string;
-    buttonStyle?: string
+    buttonStyle?: 'link-style' | 'button-style'
 };
 
 export type SanityService = {
@@ -120,7 +125,11 @@ export type SanityProject = {
     skills: string
     images: {
         image: SanityAssetImage
-    }[]
+    }[];
+    _translations: {
+        slug: string;
+        language: string
+    }
 };
 
 export type SanitySeo = {
@@ -137,14 +146,7 @@ export type SanityFooterCopyright = {
 export type SanityNavigation = {
     _id: string;
     _type: string;
-    menuLinks: (SanityLink | SanityNavigationPageLink)[]
-};
-
-export type SanityNavigationPageLink = {
-    _key: string;
-    _type: string;
-    title?: string;
-    collectionPages: SanityPage
+    menuLinks: SanityLink[]
 };
 
 export type SanityContactInfo = {

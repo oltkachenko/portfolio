@@ -20,7 +20,6 @@ export default defineType({
             description: 'Website launch date'
         },
         defineField({
-            // should match 'languageField' plugin configuration setting, if customized
             name: 'language',
             type: 'string',
             readOnly: true,

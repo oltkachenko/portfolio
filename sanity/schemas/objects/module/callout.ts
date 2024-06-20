@@ -6,52 +6,62 @@ export default defineField({
     title: 'Callout',
     type: 'object',
     icon: BulbOutlineIcon,
-    groups: [
-        {name: 'general', title: 'General', default: true},
-        {name: 'styling', title: 'Style'}
-    ],
     fields: [
-        // Color
-        defineField({
-            name: 'backgroundColor',
-            title: 'Background Color',
-            type: 'simplerColor',
-            group: 'styling'
-        }),
         // Text
         defineField({
-            name: 'text',
-            title: 'Text',
+            name: 'title',
+            title: 'Title',
             type: 'text',
             rows: 2,
-            group: 'general',
             validation: (rule) => [
                 rule.required(),
                 rule.max(70).warning(`Callout length shouldn't be more than 70 characters.`),
             ],
+        }),
+        // Subtitle
+        defineField({
+            name: 'subtitle',
+            title: 'Subtitle',
+            description: 'This field is the subtitle of module section.',
+            type: 'text',
+            rows: 2,
+        }),
+        // Alignment
+        defineField({
+            name: 'alignment',
+            title: 'Alignment',
+            type: 'string',
+            initialValue: 'center',
+            options: {
+                list: [
+                    {title: 'Left', value: 'left'},
+                    {title: 'Center', value: 'center'},
+                    {title: 'Right', value: 'right'}
+                ],
+                layout: 'dropdown'
+            }
         }),
         // Link
         defineField({
             name: 'links',
             title: 'Link',
             type: 'array',
-            group: 'general',
             of: [{type: 'linkInternal'}, {type: 'linkExternal'}],
-            validation: (rule) => rule.max(1),
+            validation: (rule) => rule.max(2),
         }),
     ],
     preview: {
         select: {
-        text: 'text',
-        url: 'url',
+            title: 'title',
+            url: 'url',
         },
         prepare(selection) {
-        const {text} = selection
-        return {
-            subtitle: 'Callout',
-            title: text,
-            media: BulbOutlineIcon,
-        }
+            const {title} = selection
+            return {
+                subtitle: 'Callout',
+                title: title,
+                media: BulbOutlineIcon,
+            }
         },
     },
 })

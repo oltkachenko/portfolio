@@ -29,7 +29,7 @@ const DOCUMENT_TYPES_IN_STRUCTURE = [
     "navigation",
     'project',
     'services',
-    'translation.metadata',
+    // 'translation.metadata',
     'media.tag',
     'contactInfo',
     'contactForm'

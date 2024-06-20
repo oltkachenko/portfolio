@@ -1,22 +1,19 @@
 .services {
     padding: 40px 0;
 
-    &-heading {
-        margin-bottom: 32px;
-        text-align: center;
-    }
-
-    &-title {
-        font-size: 32px;
-        color: #29a587;
-        font-weight: 700;
-    }
-
-    &-subtitle {
-        margin-top: 16px;
-    }
-
     &-content {
         @include g-grid;
+    }
+
+    &-actions {
+        padding: 32px 0 0;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+
+        @include media(sm) {
+            flex-direction: column;
+        }
     }
 }
