@@ -24,18 +24,20 @@ export default function Portfolio({ portfolio }: Props) {
                 <div className='portfolio-content'>
                     {portfolio.projectsList.map(project => (
                         <div key={project._id} className='project_tile'>
-                            <Link href={project.slug}>
-                                <Image 
-                                    className='project_tile-img'
-                                    src={project.images[0].image.url}
-                                    alt={`${project.images[0].image.alt || project.images[0].image.altText || ''}`} 
-                                    width={690}
-                                    height={286}
-                                    placeholder="blur"
-                                    blurDataURL={project.images[0].image.blurDataURL}
-                                />
-                            </Link>
-
+                            {project.tileImage && (
+                                <Link href={project.slug}>
+                                    <Image 
+                                        className='project_tile-img'
+                                        src={project.tileImage.url}
+                                        alt={`${project.tileImage.alt || project.tileImage.altText || ''}`} 
+                                        width={690}
+                                        height={286}
+                                        placeholder="blur"
+                                        blurDataURL={project.tileImage.blurDataURL}
+                                    />
+                                </Link>
+                            )}
+                            
                             <div className='project_tile-content'>
                                 <h3 className='project_tile-title'>{project.title}</h3>
 

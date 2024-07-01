@@ -1,0 +1,51 @@
+.animated_bar {
+    background-color: #29a587;
+    content: "";
+    display: block;
+    height: 4px;
+    left: 0;
+    margin: 0 auto;
+    position: relative;
+    right: 0;
+    width: 75px;
+    overflow: hidden;
+
+    &::after, &::before {
+        -webkit-animation-duration: 3s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-name: barAnimation;
+        -webkit-animation-timing-function: linear;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-name: barAnimation;
+        animation-timing-function: linear;
+        background-color: #fff;
+        content: "";
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 4px
+    }
+    
+    &:before {
+        left: 8px
+    }
+    
+    &:after {
+        left: 0
+    }
+    
+    
+}
+
+@keyframes barAnimation {
+    from {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    to {
+        -webkit-transform: translateX(75px);
+        transform: translateX(75px);
+    }
+}

@@ -16,6 +16,8 @@ import services from './schemas/documents/services'
 import body from './schemas/blocks/body'
 import contactInfo from './schemas/documents/contactInfo'
 import contactForm from './schemas/documents/contactForm'
+import technologyTag from './schemas/documents/technologyTag'
+import linkPage from './schemas/objects/linkPage'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
     types: [
@@ -25,6 +27,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
         navigation,
         page,
         project,
+        linkPage,
         linkExternal,
         linkInternal,
         seoHome,
@@ -37,5 +40,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
         modulePortfolio,
         body,
         contactInfo,
+        technologyTag
     ]
 }

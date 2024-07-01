@@ -16,11 +16,16 @@ export type SanityHomePage = {
     seo: SanitySeo;
 };
 
+export type SanityPortfolioPage = SanityProject[]
+
 export type SanityPage = {
-    _id: string,
-    _type: string
-    slug: string
-    title: string
+    _id: string;
+    _type: string;
+    slug: string;
+    title: string;
+    pageType: 'page-type' | undefined;
+    body: PortableTextBlock[];
+    modules: (SanityModule)[];
 };
 
 export type SanityModule =
@@ -86,7 +91,15 @@ export type SanityModulePortfolio = {
     links: SanityLink[];
 }
 
-export type SanityLink = SanityLinkExternal | SanityLinkInternal;
+export type SanityLink = SanityLinkPage | SanityLinkExternal | SanityLinkInternal;
+
+export type SanityLinkPage = {
+    _key: string;
+    _type: "linkPage";
+    title: string;
+    buttonStyle?: 'link-style' | 'button-style';
+    slug: string;
+};
 
 export type SanityLinkExternal = {
     _key: string;
@@ -94,7 +107,7 @@ export type SanityLinkExternal = {
     newWindow?: boolean;
     url: string;
     title: string;
-    buttonStyle?: 'link-style' | 'button-style'
+    buttonStyle?: 'link-style' | 'button-style';
 };
   
 export type SanityLinkInternal = {
@@ -102,7 +115,7 @@ export type SanityLinkInternal = {
     _type: "linkInternal";
     slug?: string;
     title: string;
-    buttonStyle?: 'link-style' | 'button-style'
+    buttonStyle?: 'link-style' | 'button-style';
 };
 
 export type SanityService = {
@@ -120,9 +133,12 @@ export type SanityProject = {
     _type: 'project';
     title: string;
     slug: string;
+    category: string;
     role: string;
+    shortDescription: string;
     description: PortableTextBlock[];
-    skills: string
+    skills: SanityTechnologyTag[];
+    tileImage: SanityAssetImage;
     images: {
         image: SanityAssetImage
     }[];
@@ -160,4 +176,11 @@ export type SanityContactInfo = {
 export type SanityColorInput = {
     label: string,
     value: string,
+};
+
+export type SanityTechnologyTag = {
+    _id: string;
+    _type: string;
+    title: string;
+    image: SanityAssetImage
 };

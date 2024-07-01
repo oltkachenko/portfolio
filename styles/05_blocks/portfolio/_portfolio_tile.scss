@@ -1,0 +1,88 @@
+.portfolio_tile {
+    background-color: #FBF1EE;;
+    padding: 24px;
+    border-radius: 20px;
+    background-image: url(/images/tile-bg.png);
+    background-repeat: no-repeat;
+    background-size: 141px 141px;
+    background-position: bottom -48px right -48px;
+    display: flex;
+    flex-direction: column;
+
+    .view_switcher_grid.m-list & {
+        @include media(md-up) {
+            align-items: center;
+            flex-direction: row;
+        }
+    }
+
+    &-img {
+        border-radius: 16px;
+        overflow: hidden;
+        background-color: #fff;
+    }
+
+    &-img_link {
+        .view_switcher_grid.m-list & {
+            @include media(md-up) {
+                flex-grow: 0;
+                display: block;
+                flex-basis: 50%;
+            }
+        }
+    }
+
+    &-content {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .view_switcher_grid.m-list & {
+            @include media(md-up) {
+                margin-left: 80px;
+                flex-basis: 50%;
+                justify-content: center;
+            }
+        }
+    }
+
+    &-badge {
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        color: #29a587;
+        display: inline-block;
+    }
+
+    &-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 30px;
+    }
+
+    &-short_description {
+        line-height: 1.7;
+        margin-bottom: 30px;
+    }
+
+    &-action {
+        .view_switcher_grid.m-grid & {
+            margin-top: auto;
+        }
+    }
+
+    &-link {
+        align-items: center;
+        font-weight: 500;
+        font-size: 14px;
+        display: flex;
+        margin-top: auto;
+
+        svg {
+            margin-left: 12px;
+            color: #acd8aa;
+        }
+    }
+}

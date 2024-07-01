@@ -32,13 +32,30 @@ export default defineType({
             initialValue: 'page-type',
             options: {
                 list: [
-                    {title: 'Page', value: 'page-type'},
-                    {title: 'Services', value: 'services-type'},
-                    {title: 'Portfolio', value: 'portfolio-type'}
+                    {title: 'Page', value: 'page-type'}
                 ],
                 layout: 'dropdown'
             },
             validation: (rule) => rule.required(),
+        }),
+        // Body
+        defineField({
+            name: 'body',
+            title: 'Body',
+            type: 'body',
+        }),
+        // Modules
+        defineField({
+            name: 'modules',
+            title: 'Modules',
+            type: 'array',
+            of: [
+                {type: 'module.about'},
+                {type: 'module.services'},
+                {type: 'module.contact'},
+                {type: 'module.portfolio'},
+                {type: 'module.callout'},
+            ],
         }),
         defineField({
             // should match 'languageField' plugin configuration setting, if customized

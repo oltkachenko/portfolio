@@ -60,7 +60,11 @@ export default defineField({
             description: 'Set list of links',
             type: 'array',
             group: 'footer',
-            of: [{type: 'linkInternal'}, {type: 'linkExternal'}],
+            of: [
+                {type: 'linkPage'},
+                {type: 'linkInternal'},
+                {type: 'linkExternal'}
+            ],
             validation: (rule) => rule.max(2),
         }),
         // Projects List
