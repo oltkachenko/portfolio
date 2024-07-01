@@ -1,7 +1,7 @@
 import groq from "groq";
 
-import { LINK_EXTERNAL } from "../linkExternal";
-import { LINK_INTERNAL } from "../linkInternal";
+import { LINK_EXTERNAL } from "../links/linkExternal";
+import { LINK_INTERNAL } from "../links/linkInternal";
 
 export const MARK_DEFS = groq`
 	...,

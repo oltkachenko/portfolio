@@ -18,8 +18,6 @@ export const LINK_INTERNAL = groq`
         },
         (_type == "page") => {
             "slug": select(
-                pageType == 'portfolio-type' => '/page/' + slug.current,
-                pageType == 'services-type' => '/page/' + slug.current,
                 pageType == 'page-type' || pageType == null => '/page/' + slug.current,
                 '/page/' + slug.current
             ),

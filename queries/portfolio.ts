@@ -4,7 +4,7 @@ import { PROJECT_PAGE } from "./fragments/pages/project";
 
 
 export const PORTFOLIO_PAGE_QUERY = groq`
-    *[_type == 'project' && language == $language && !(_id in path("drafts.**"))][0] {
+    *[_type == 'project' && language == $language && !(_id in path("drafts.**"))] {
         ${PROJECT_PAGE}
     }
 `;

@@ -16,38 +16,19 @@ export default function LocaleSwitcher() {
     const locale = useLocale();
     const pathname = usePathname();
 
-
-//     // const pathname = usePathname()
-
-//         const regex = /^\/[en|ua]\S/;
-// var newstr = pathname.replace(regex, "");
-// console.log('new', newstr);
-
-
-//     const pathnameArray = pathname.split('/')
-
-//     if (pathnameArray[pathnameArray.length-1] === sessionData.data.find((loc: any)=> loc.language === 'en').slug) {
-//         console.log('test');
-//     }
-
-
-    
-
     function rediretPath(nextLocale: string | undefined) {
         const pathnameArray = pathname.split('/');
 
         let path = pathnameArray?.slice(2, -1).join('/')
 
-
-
-        const translation111 = sessionStorage.getItem("translation");
+        const translation = sessionStorage.getItem("translation");
 
         let sessionData;
         let sessionDataSlug;
-        if (translation111) {
-            sessionData = JSON.parse(translation111);
+        if (translation) {
+            sessionData = JSON.parse(translation);
 
-            sessionDataSlug = sessionData.data.find((loc: any)=> loc.language === locale).slug
+            sessionDataSlug = sessionData.data.find((loc: any)=> loc.language === locale)?.slug
         }
 
         if (pathnameArray[pathnameArray.length-1] === sessionDataSlug) {
@@ -57,12 +38,11 @@ export default function LocaleSwitcher() {
         return `/`
     }
     
-
     const localeTitle = locales.find(loc => locale === loc.id)?.title;
     
     useOnClickOutside(ref, () => setIsOpen(false));
 
-    function onClick(event: MouseEvent<HTMLDivElement>) {
+    function onClick(event: React.MouseEvent<HTMLDivElement>) {
         if (!(event.target instanceof HTMLDivElement)) {
             return;
         }
@@ -87,7 +67,7 @@ export default function LocaleSwitcher() {
                         width: '20px',
                         height: '15px',
                     }}
-                    alt={localeTitle}
+                    alt=''
                 />
                 <span className="locale_switcher-input_title">
                     {localeTitle}

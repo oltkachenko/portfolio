@@ -1,17 +1,25 @@
 import groq from "groq";
 import { PORTABLE_TEXT } from "../portableText/portableText";
 import { IMAGE } from "../image";
+import { TECHNOLOGY_TAG } from "../technologyTag";
 
 export const PROJECT_PAGE = groq`
     _id,
     _type,
     title,
     "slug": "/portfolio/" + slug.current,
+    category,
     role,
+    shortDescription,
     description[]{
         ${PORTABLE_TEXT}
     },
-    skills,
+    skills[] -> {
+        ${TECHNOLOGY_TAG}
+    },
+    tileImage {
+        ${IMAGE}
+    },
     images[] {
         "image": {
             ${IMAGE}

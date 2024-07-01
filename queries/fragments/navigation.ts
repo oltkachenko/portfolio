@@ -1,6 +1,6 @@
 import groq from "groq";
-import { LINK_EXTERNAL } from "./linkExternal";
-import { LINK_INTERNAL } from "./linkInternal";
+import { LINK_EXTERNAL } from "./links/linkExternal";
+import { LINK_INTERNAL } from "./links/linkInternal";
 
 export const NAVIGATION = groq`
     *[_type == "navigation" && language == $language && !(_id in path("drafts.**"))][0] {

@@ -25,5 +25,18 @@
         "title": "Сторінку не знайдено",
         "subtitle": "Вибачте, сторінка, яку ви шукаєте, не знайдена",
         "buttonName": "Повернутись на головну"
+    },
+    "PortfolioPage": {
+        "title": "Портфоліо",
+        "linkName": "Переглянути проект"
+    },
+    "PortfolioSlugPage": {
+        "role": "Роль:",
+        "technology": "Tехнології:",
+        "categories": "Категорії:"
+    },
+    "ProjectCategory": {
+        "web-development": "Веб-розробка",
+        "branding": "Брендинг"
     }
 }

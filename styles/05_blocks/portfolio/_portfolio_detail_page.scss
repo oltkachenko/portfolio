@@ -1,0 +1,88 @@
+.portfolio_detail_page {
+    margin-top: 40px;
+
+    &-title {
+        font-size: 54px;
+        font-weight: bold;
+
+        @include media(md-down) {
+            font-size: 40px;
+        }
+    }
+
+    &-category {
+        color: #29a587;
+        margin-bottom: 48px;
+        margin-top: 12px;
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    &-list {
+        display: flex;
+        margin-bottom: 80px;
+
+        @include media(sm) {
+            flex-direction: column;
+        }
+    }
+
+    &-list_item {
+        @include media(md-up) {
+            width: 33%;
+        }
+
+        @include media(xl) {
+            width: 20%;
+        }
+
+        &:not(:last-child) {
+            @include media(sm) {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    &-list_title {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: 12px;
+    }
+
+    &-list_technology {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    &-list_img {
+        height: 48px;
+        width: auto;
+        max-width: 120px;
+    }
+
+    &-content {
+        @include g-grid
+    }
+
+    &-description {
+        grid-column: span 4;
+        font-size: 18px;
+        text-align: justify;
+
+        @include media(md-down) {
+            grid-column: grid-start / grid-end;
+            grid-row: 2 / 3;
+            margin-top: 20px;
+        }
+    }
+
+    &-img {
+        grid-column: 6 / grid-end;
+
+        @include media(md-down) {
+            grid-column: grid-start / grid-end;
+            grid-row: 1 / 2;
+        }
+    }
+}
