@@ -46,7 +46,11 @@ export default defineField({
             name: 'links',
             title: 'Link',
             type: 'array',
-            of: [{type: 'linkInternal'}, {type: 'linkExternal'}],
+            of: [
+                {type: 'linkPage'},
+                {type: 'linkInternal'},
+                {type: 'linkExternal'}
+            ],
             validation: (rule) => rule.max(2),
         }),
     ],

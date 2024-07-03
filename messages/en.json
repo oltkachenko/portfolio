@@ -25,5 +25,18 @@
         "title": "Page Not Found",
         "subtitle": "Sorry, the page you are looking for was not found",
         "buttonName": "Return to Homepage"
+    },
+    "PortfolioPage": {
+        "title": "Portfolio",
+        "linkName": "See project"
+    },
+    "PortfolioSlugPage": {
+        "role": "Role:",
+        "technology": "Technology:",
+        "categories": "Categories:"
+    },
+    "ProjectCategory": {
+        "web-development": "Web Development",
+        "branding": "Branding"
     }
 }

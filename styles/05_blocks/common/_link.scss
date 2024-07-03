@@ -1,0 +1,11 @@
+.link {
+    text-decoration-line: none;
+    cursor: pointer;
+    text-decoration-color: #29a587;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 3px;
+
+    &:hover {
+        text-decoration-line: underline;
+    }
+}

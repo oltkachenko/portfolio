@@ -8,16 +8,19 @@ type Props = {
 };
 
 export default async function Home({ params }: Props) {
-    const page = await client.fetch<SanityHomePage>(
+    const homePage = await client.fetch<SanityHomePage>(
         HOME_PAGE_QUERY, 
         {
             "language": params.locale
+        },
+        {
+            next: { revalidate: 60 * 60 * 24 }
         }
     )
 
     return (
         <main className="">
-            {page.modules.map(moduleData => 
+            {homePage.modules && homePage.modules.map(moduleData => 
                 <Modules key={moduleData._key} moduleData={moduleData} />
             )}
         </main>

@@ -27,10 +27,31 @@ export default defineType({
             validation: (rule) => rule.required(),
         }),
         defineField({
+            name: 'category',
+            title: 'Category',
+            type: 'string',
+            initialValue: 'web-development',
+            options: {
+                list: [
+                    {title: 'Web Development', value: 'web-development'},
+                    {title: 'Branding', value: 'branding'},
+                ],
+                layout: 'dropdown'
+            },
+            validation: (rule) => rule.required(),
+        }),
+        defineField({
             name: 'role',
             description: 'e.g., Front-end engineer or Marketing analyst',
             title: 'Your role',
             type: 'string'
+        }),
+        defineField({
+            name: 'shortDescription',
+            description: "Briefly describe the project",
+            title: 'Short description',
+            type: 'text',
+            rows: 2,
         }),
         defineField({
             name: 'description',
@@ -42,7 +63,19 @@ export default defineType({
             name: 'skills',
             description: 'Type to add skills relevant to this project',
             title: 'Skills and deliverables',
-            type: 'string'
+            type: 'array',
+            of: [
+                {
+                    type: 'reference',
+                    to: [{type: 'technologyTag'}],
+                }
+            ]
+        }),
+        defineField({
+            name: 'tileImage',
+            type: 'image',
+            title: 'Tile image',
+            validation: (rule) => rule.required().assetRequired(),
         }),
         defineField({
             name: 'images',

@@ -1,8 +1,9 @@
 import groq from "groq";
 import { PROJECT_PAGE } from "../pages/project";
 import { COLOR_INPUT } from "../colorInput";
-import { LINK_EXTERNAL } from "../linkExternal";
-import { LINK_INTERNAL } from "../linkInternal";
+import { LINK_EXTERNAL } from "../links/linkExternal";
+import { LINK_INTERNAL } from "../links/linkInternal";
+import { LINK_PAGE } from "../links/linkPage";
 
 export const MODULE_PORTFOLIO = groq`
     title,
@@ -15,6 +16,9 @@ export const MODULE_PORTFOLIO = groq`
         ${PROJECT_PAGE}
     },
     links[] {
+        (_type == 'linkPage') => {
+            ${LINK_PAGE}
+        },
         (_type == 'linkExternal') => {
             ${LINK_EXTERNAL}
         },

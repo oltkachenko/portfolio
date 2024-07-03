@@ -13,11 +13,11 @@ export default function ContactInfo({info, className}: Props ) {
             <div className='contact_info-title'>{info.title}</div>
 
             {info.type === "tel" && (
-                <Link href={`tel:${info.value}`} className='contact_info-value'>{info.value}</Link>
+                <Link href={`tel:${info.value}`} className='contact_info-value link'>{info.value}</Link>
             )}
 
             {info.type === "email" && (
-                <Link href={`mailto:${info.value}`} className='contact_info-value'>{info.value}</Link>
+                <Link href={`mailto:${info.value}`} className='contact_info-value link'>{info.value}</Link>
             )}
 
             {info.type === "text" || info.type === null && (

@@ -1,0 +1,32 @@
+.portfolio_page {
+    margin-top: 40px;
+
+    &-grid {
+        @include g-grid;
+
+        margin-top: 48px;
+    }
+
+    &-title {
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    &-grid_tile {
+        grid-column: span 4;
+
+        @include media(sm) {
+            grid-column: grid-start / grid-end;
+        }
+
+        @include media(md) {
+            grid-column: span 6
+        }
+
+        .view_switcher_grid.m-list & {
+            grid-column: grid-start / grid-end;
+        }
+    }
+}

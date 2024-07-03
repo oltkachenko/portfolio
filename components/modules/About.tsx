@@ -5,6 +5,7 @@ import GridLayout from '../common/GridLayout'
 import Image from 'next/image'
 import ContactInfo from '../ContactInfo'
 import Link from 'next/link'
+import Social from '../common/Social'
 
 interface Props {
     about: SanityModuleAbout;
@@ -49,8 +50,16 @@ export default function About({ about }: Props) {
                             >
                                 {about.linkName}
                             </Link>
+
+                            {about.socialShow && (
+                                <div className='about_me-social social'>
+                                    {about.social.map(social => (
+                                        <Social social={social} />
+                                    ))}
+                                </div>
+                            )}
                         </div>
-                    )}   
+                    )}
                 </div>
             </section>
         </GridLayout>
