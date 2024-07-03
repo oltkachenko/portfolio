@@ -8,7 +8,8 @@ export default defineField({
     icon: UserIcon,
     groups: [
         {name: 'general', title: 'General', default: true},
-        {name: 'download', title: 'Files'}
+        {name: 'download', title: 'Files'},
+        {name: 'social', title: 'Social'}
     ],
     fields: [
         // Text
@@ -70,6 +71,25 @@ export default defineField({
                 }
             ],
             group: 'download'
+        }),
+        // Social
+        defineField({
+            name: 'socialShow',
+            title: 'Show social network',
+            type: 'boolean',
+            group: 'social'
+        }),
+        defineField({
+            name: 'social',
+            title: 'Social networks',
+            type: 'array',
+            of: [
+                {
+                    type: 'reference',
+                    to: [{type: 'social'}],
+                }
+            ],
+            group: 'social'
         }),
     ],
     preview: {

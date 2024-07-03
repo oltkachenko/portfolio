@@ -26,6 +26,10 @@ export type SanityPage = {
     pageType: 'page-type' | undefined;
     body: PortableTextBlock[];
     modules: (SanityModule)[];
+    _translations: {
+        slug: string;
+        language: string
+    }
 };
 
 export type SanityModule =
@@ -66,7 +70,9 @@ export type SanityModuleAbout = {
     file: {
         description: string;
         fileUrl: string;
-    }
+    };
+    socialShow: boolean;
+    social: SanitySocial[];
 }
 
 export type SanityModuleContact = {
@@ -182,5 +188,13 @@ export type SanityTechnologyTag = {
     _id: string;
     _type: string;
     title: string;
-    image: SanityAssetImage
+    image: SanityAssetImage;
+};
+
+export type SanitySocial = {
+    _id: string;
+    _type: string;
+    title: string;
+    link: string;
+    image: SanityAssetImage;
 };

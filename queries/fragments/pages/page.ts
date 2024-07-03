@@ -17,4 +17,8 @@ export const PAGE = groq`
     modules[] {
         ${MODULES}
     },
+    "_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
+        "slug": slug.current,
+        language
+    },
 `;

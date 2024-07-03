@@ -18,13 +18,12 @@ import contactInfo from './schemas/documents/contactInfo'
 import contactForm from './schemas/documents/contactForm'
 import technologyTag from './schemas/documents/technologyTag'
 import linkPage from './schemas/objects/linkPage'
+import social from './schemas/documents/social'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
     types: [
         // Singletons
         home,
-        footer,
-        navigation,
         page,
         project,
         linkPage,
@@ -39,7 +38,12 @@ export const schema: { types: SchemaTypeDefinition[] } = {
         moduleContact,
         modulePortfolio,
         body,
+        technologyTag,
+
+        // Settings
+        navigation,
+        footer,
         contactInfo,
-        technologyTag
+        social
     ]
 }

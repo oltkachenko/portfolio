@@ -12,6 +12,9 @@ export default async function Home({ params }: Props) {
         HOME_PAGE_QUERY, 
         {
             "language": params.locale
+        },
+        {
+            next: { revalidate: 60 * 60 * 24 }
         }
     )
 

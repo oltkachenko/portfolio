@@ -7,6 +7,7 @@ import projects from './projects'
 import services from './services'
 import forms from './forms'
 import technologyTag from './technologyTag'
+import social from '../schemas/documents/social'
 
 /**
  * Desk structure overrides
@@ -34,7 +35,8 @@ const DOCUMENT_TYPES_IN_STRUCTURE = [
     'media.tag',
     'contactInfo',
     'contactForm',
-    'technologyTag'
+    'technologyTag',
+    'social'
 ]
 
 export const structure: StructureResolver = (S, context) =>

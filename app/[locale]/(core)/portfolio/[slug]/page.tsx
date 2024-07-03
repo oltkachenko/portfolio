@@ -36,7 +36,6 @@ export default async function ProjectsSlugPage({ params }: Props) {
             slug: params.slug,
         },
         {
-            cache: 'force-cache',
             next: { revalidate: 60 * 60 * 24 }
         }
     )
@@ -49,10 +48,7 @@ export default async function ProjectsSlugPage({ params }: Props) {
     //             slug: params.slug
     //         },
     //     )
-    // ]);
-
-    console.log(project);
-    
+    // ]);    
 
     if (!project) {
         return notFound()
