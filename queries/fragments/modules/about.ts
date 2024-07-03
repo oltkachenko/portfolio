@@ -2,6 +2,7 @@ import groq from "groq";
 import { IMAGE } from "../image";
 import { PORTABLE_TEXT } from "../portableText/portableText";
 import { CONTACT_INFO } from "../contactInfo";
+import { SOCIAL } from "../social";
 
 export const MODULE_ABOUT = groq`
 	title,
@@ -19,5 +20,9 @@ export const MODULE_ABOUT = groq`
         _type,
         description,
         "fileUrl": asset->url
+    },
+    socialShow,
+    social[] -> {
+        ${SOCIAL}
     }
 `;

@@ -1,3 +1,4 @@
+import SessionStorage from '@/components/SessionStorage'
 import GridLayout from '@/components/common/GridLayout'
 import Modules from '@/components/modules/Modules'
 import PortableText from '@/components/portableText/PortableText'
@@ -16,19 +17,30 @@ export default async function Page({ params }: Props) {
         {
             language: params.locale,
             slug: params.slug,
+        },
+        {
+            next: { revalidate: 60 * 60 * 24 }
         }
     )
-
+    
     return (
         <main className="">
             <GridLayout>
-                {page.body && (
-                    <PortableText blocks={page.body} className=''/>
-                )}
+                <section className='page'>
+                    {page.body && (
+                        <PortableText blocks={page.body} className=''/>
+                    )}
+                </section>
+                
             </GridLayout>
 
             {page.modules && page.modules.map(moduleData => 
                 <Modules key={moduleData._key} moduleData={moduleData} />
+            )}
+
+            {page?._translations && (
+                <SessionStorage data={page?._translations}/>
+
             )}
         </main>
     )

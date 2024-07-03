@@ -65,6 +65,7 @@
     &-info_tile {
         @include media(lg-up) {
             width: calc(100% / 3);
+            padding-right: 12px;
         }
 
         @include media(md-down) {
@@ -78,5 +79,16 @@
 
     &-actions {
         margin-top: 32px;
+        display: flex;
+    }
+
+    &-social {
+        &::before {
+            content: '';
+            width: 1px;
+            height: 20px;
+            border-left: 2px solid #ccc;
+            margin: 0 4px 0 24px;
+        }
     }
 }

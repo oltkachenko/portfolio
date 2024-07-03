@@ -8,4 +8,10 @@
             font-size: 16px;
         }
     }
+
+    &-value {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: block;
+    }
 }

@@ -6,10 +6,12 @@
 @import '05_blocks/forms/form_field';
 
 @import '05_blocks/common/button';
+@import '05_blocks/common/link';
 @import '05_blocks/common/grid_layout';
 @import '05_blocks/common/back_to_top';
 @import '05_blocks/common/portable_text'; 
 @import '05_blocks/common/logo'; 
+@import '05_blocks/common/social'; 
 
 @import '05_blocks/header/header';
 @import '05_blocks/header/menu_bar';
@@ -36,3 +38,6 @@
 @import '05_blocks/portfolio/animated_bar';
 @import '05_blocks/portfolio/view_switcher';
 @import '05_blocks/portfolio/portfolio_detail_page';
+
+@import '05_blocks/page/page';
+
