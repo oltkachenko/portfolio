@@ -9,8 +9,7 @@ interface Props {
 
 export default function Social({ social }: Props ) {
     return (
-        <Link 
-            key={social._id}
+        <Link
             href={social.link}
             title={social.title}
             target='_blank'
