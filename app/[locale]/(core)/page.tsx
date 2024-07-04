@@ -14,7 +14,7 @@ export default async function Home({ params }: Props) {
             "language": params.locale
         },
         {
-            next: { revalidate: 10 }
+            next: { revalidate: 60 * 60 * 24 }
         }
     )
 
