@@ -38,5 +38,16 @@
     "ProjectCategory": {
         "web-development": "Веб-розробка",
         "branding": "Брендинг"
+    },
+    "ServiceTile": {
+        "linkwai": "Перейти до {serviceName} послуги",
+        "linkTitle": "Детальніше"
+    },
+    "Social": {
+        "linkwai": "Переглянути {social} профіль"
+    },
+    "PortfolioTile": {
+        "linkwai": "Перейти до ''{name}'' проекту",
+        "linkTitle": "Детальніше"
     }
 }

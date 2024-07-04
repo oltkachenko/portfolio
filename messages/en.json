@@ -38,5 +38,16 @@
     "ProjectCategory": {
         "web-development": "Web Development",
         "branding": "Branding"
+    },
+    "ServiceTile": {
+        "linkwai": "Go to {serviceName} service",
+        "linkTitle": "Read More"
+    },
+    "Social": {
+        "linkwai": "Visit {social} profile"
+    },
+    "PortfolioTile": {
+        "linkwai": "Go to ''{name}'' project details",
+        "linkTitle": "See details"
     }
 }
