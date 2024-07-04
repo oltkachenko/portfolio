@@ -42,6 +42,12 @@ export default defineField({
                         PAGE_REFERENCES.map(page => {
                             filterType.push(`_type == "${page.type}"`)
                         })
+
+                        if (!document.language) {
+                            return {
+                                filter: `(${filterType.join(' || ')})`,
+                            }
+                        }
                         
                         return {
                             filter: `(${filterType.join(' || ')}) && language == $language`,

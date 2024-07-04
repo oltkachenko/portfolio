@@ -6,12 +6,15 @@ import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa6';
 import Heading from './Heading';
 import CustomLink from '../elements/CustomLink';
+import { useTranslations } from 'next-intl';
 
 interface Props {
     portfolio: SanityModulePortfolio;
 }
 
-export default function Portfolio({ portfolio }: Props) {   
+export default function Portfolio({ portfolio }: Props) {
+    const t = useTranslations('PortfolioTile');
+
     return (
         <GridLayout style={{"--bg-layout-color": portfolio.backgroundColor?.value} as React.CSSProperties}>
             <section className="portfolio">
@@ -41,8 +44,12 @@ export default function Portfolio({ portfolio }: Props) {
                             <div className='project_tile-content'>
                                 <h3 className='project_tile-title'>{project.title}</h3>
 
-                                <Link className="project_tile-link" href={project.slug}>
-                                    See details
+                                <Link 
+                                    className="project_tile-link"
+                                    href={project.slug}
+                                    aria-label={t('linkwai', {name: project.title})}
+                                >
+                                    {t('linkTitle')}
                                     <FaArrowRight />
                                 </Link>
                             </div>

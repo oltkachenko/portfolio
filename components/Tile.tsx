@@ -3,14 +3,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { FaArrowRight } from 'react-icons/fa'
+import CustomLink from './elements/CustomLink'
+import { useTranslations } from 'next-intl'
 
 export default function Tile(service: SanityService ) {
+    const t = useTranslations('ServiceTile')
+
     return (
         <div className="tile">
             <Image 
                 className='tile-img'
                 src={service.image.url}
-                alt={service.title} 
+                alt='' 
                 width={64}
                 height={64}
             />
@@ -23,10 +27,28 @@ export default function Tile(service: SanityService ) {
                 )}
             </p>
     
-            <Link className="tile-link" href="/">
-                Read More
-                <FaArrowRight />
-            </Link>
+            {service.showDetailsLink && (
+                service.detailsLink ? (
+                    <CustomLink 
+                        className='tile-link'
+                        key={service._id}
+                        link={service.detailsLink[0]}
+                        aria-label={t('linkwai', {serviceName: service.title})}
+                    >
+                        {t('linkTitle')}
+                        <FaArrowRight />
+                    </CustomLink>
+                ) : (
+                    <Link 
+                        className="tile-link"
+                        href={service.slug}
+                        aria-label={t('linkwai', {serviceName: service.title})}
+                    >
+                        {t('linkTitle')}
+                        <FaArrowRight />
+                    </Link>
+                )
+            )}
         </div>
     )
 }
