@@ -128,6 +128,9 @@ export type SanityService = {
     _id: string;
     _type: 'services';
     title: string;
+    slug: string;
+    showDetailsLink: boolean;
+    detailsLink: SanityLink[];
     description: {
         value: string
     },
