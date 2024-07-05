@@ -20,7 +20,7 @@ export default function ContactInfo({info, className}: Props ) {
                 <Link href={`mailto:${info.value}`} className='contact_info-value link'>{info.value}</Link>
             )}
 
-            {info.type === "text" || info.type === null && (
+            {(info.type === "text" || info.type === null) && (
                 <div className='contact_info-value'>{info.value}</div>
             )}
         </div>
