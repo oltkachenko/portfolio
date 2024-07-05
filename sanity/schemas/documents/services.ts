@@ -52,16 +52,11 @@ export default defineType({
             },
             fields: [
                 {
-                  name: 'caption',
-                  type: 'string',
-                  title: 'Caption',
-                },
-                {
-                  name: 'attribution',
-                  type: 'string',
-                  title: 'Attribution',
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Alternative text',
                 }
-              ]
+            ],
         })
     ]
 })

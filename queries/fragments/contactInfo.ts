@@ -5,5 +5,5 @@ export const CONTACT_INFO = groq`
     _type,
     "title": title[_key == $language][0].value,
     type,
-    value
+    "value": coalesce(value[_key == $language][0].value, value[0].value)
 `;

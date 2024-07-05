@@ -87,7 +87,7 @@ export default async function ProjectsSlugPage({ params }: Props) {
                                         key={skill._id}
                                         className='portfolio_detail_page-list_img'
                                         src={skill.image.url}
-                                        alt={`${skill.image.alt || skill.image.altText || skill.title || ''}`} 
+                                        alt={skill.image.alt || skill.image.altText || skill.title || ''} 
                                         width={0}
                                         height={0}
                                         blurDataURL={skill.image.blurDataURL}

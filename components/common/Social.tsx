@@ -20,7 +20,7 @@ export default function Social({ social }: Props ) {
             <Image 
                 className=''
                 src={social.image.url}
-                alt=''
+                alt={social.image.alt || social.image.altText || ''}
                 width={48}
                 height={48}
             />

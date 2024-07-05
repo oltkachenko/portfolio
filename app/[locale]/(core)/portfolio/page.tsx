@@ -47,7 +47,7 @@ export default async function Portfolio({ params }: Props) {
                                         <Image 
                                             className='portfolio_tile-img'
                                             src={item.tileImage.url}
-                                            alt={`${item.tileImage.alt || item.tileImage.altText || ''}`} 
+                                            alt={item.tileImage.alt || item.tileImage.altText || ''}
                                             width={636}
                                             height={286}
                                             placeholder="blur"
