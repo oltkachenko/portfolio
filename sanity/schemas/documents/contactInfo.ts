@@ -21,6 +21,7 @@ export default defineType({
             name: 'type',
             title: 'Type',
             type: 'string',
+            initialValue: 'text',
             options: {
                 list: [
                     {title: 'Text', value: 'text'},
