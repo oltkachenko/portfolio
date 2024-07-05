@@ -75,6 +75,13 @@ export default defineType({
             name: 'tileImage',
             type: 'image',
             title: 'Tile image',
+            fields: [
+                {
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Alternative text',
+                }
+            ],
             validation: (rule) => rule.required().assetRequired(),
         }),
         defineField({

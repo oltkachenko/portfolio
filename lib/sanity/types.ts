@@ -3,6 +3,7 @@ import type { Image } from "@sanity/types";
 
 export interface SanityAssetImage extends Image {
     _type: "image";
+    alt?: string;
     altText?: string;
     blurDataURL: string;
     height: number;

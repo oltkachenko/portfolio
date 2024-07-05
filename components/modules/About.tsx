@@ -20,7 +20,7 @@ export default function About({ about }: Props) {
                         <Image 
                             className='about_me-img'
                             src={about.image.url}
-                            alt={about.title} 
+                            alt={about.image.alt || about.image.altText || ''} 
                             width={418}
                             height={478}
                         />

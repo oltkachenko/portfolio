@@ -25,14 +25,14 @@ export default function Portfolio({ portfolio }: Props) {
                 }} />
                 
                 <div className='portfolio-content'>
-                    {portfolio.projectsList.map(project => (
+                    {portfolio.projectsList && portfolio.projectsList.map(project => (
                         <div key={project._id} className='project_tile'>
                             {project.tileImage && (
                                 <Link href={project.slug}>
                                     <Image 
                                         className='project_tile-img'
                                         src={project.tileImage.url}
-                                        alt={`${project.tileImage.alt || project.tileImage.altText || ''}`} 
+                                        alt={project.tileImage.alt || project.tileImage.altText || ''} 
                                         width={690}
                                         height={286}
                                         placeholder="blur"

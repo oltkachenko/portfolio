@@ -24,6 +24,13 @@ export default defineType({
             type: 'image',
             title: 'Image',
             description: 'Social network image',
+            fields: [
+                {
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Alternative text',
+                }
+            ],
             validation: (rule) => rule.required().assetRequired(),
         }),
     ]
