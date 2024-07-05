@@ -14,7 +14,7 @@ export default function Tile(service: SanityService ) {
             <Image 
                 className='tile-img'
                 src={service.image.url}
-                alt='' 
+                alt={service.image.alt || service.image.altText || ''}
                 width={64}
                 height={64}
             />

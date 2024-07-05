@@ -53,12 +53,14 @@
         display: flex;
         gap: 20px;
         flex-wrap: wrap;
+        align-items: center;
     }
 
     &-list_img {
-        height: 48px;
+        height: 100%;
         width: auto;
         max-width: 120px;
+        max-height: 48px;
     }
 
     &-content {

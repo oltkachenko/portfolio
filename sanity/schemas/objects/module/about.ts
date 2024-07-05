@@ -47,7 +47,14 @@ export default defineField({
             type: 'image',
             options: {hotspot: true},
             validation: (rule) => rule.required(),
-            group: 'general'
+            group: 'general',
+            fields: [
+                {
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Alternative text',
+                }
+            ],
         }),
         // Download files
         defineField({
