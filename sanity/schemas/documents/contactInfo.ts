@@ -15,7 +15,7 @@ export default defineType({
         defineField({
             name: 'value',
             title: 'Value',
-            type: 'string'
+            type: 'internationalizedArrayString'
         }),
         defineField({
             name: 'type',
@@ -43,7 +43,7 @@ export default defineType({
             
             return {
                 title: title[0].value,
-                subtitle: value,
+                subtitle: value[0].value,
                 media: ComponentIcon,
             }
         },

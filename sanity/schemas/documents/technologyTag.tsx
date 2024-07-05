@@ -15,23 +15,16 @@ export default defineType({
         }),
         defineField({
             name: 'image',
-            type: 'image',
             title: 'Icon',
-            options: {
-                hotspot: true
-            },
+            type: 'image',
+            options: {hotspot: true},
             fields: [
                 {
-                  name: 'caption',
-                  type: 'string',
-                  title: 'Caption',
-                },
-                {
-                  name: 'attribution',
-                  type: 'string',
-                  title: 'Attribution',
+                    name: 'alt',
+                    type: 'string',
+                    title: 'Alternative text',
                 }
-              ]
+            ],
         }),
-    ]
+    ],
 })
