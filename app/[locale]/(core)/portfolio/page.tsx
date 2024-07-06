@@ -40,9 +40,7 @@ export async function generateMetadata({ params }: Props) {
 
     if (navigation._type === "linkPage") {
         const metadata: Metadata = {
-            title: {
-                absolute: navigation.seo.title,
-            },
+            title: navigation.seo.title,
             openGraph: {
                 title: navigation.seo.title,
                 type: "website",
