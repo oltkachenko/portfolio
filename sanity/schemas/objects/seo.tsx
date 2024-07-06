@@ -1,7 +1,7 @@
 import {defineField} from 'sanity'
 
 export default defineField({
-    name: 'seo.home',
+    name: 'seo',
     title: 'SEO',
     type: 'object',
     fields: [
@@ -9,6 +9,7 @@ export default defineField({
             name: 'title',
             title: 'Title',
             type: 'string',
+            description: 'If empty, displays the document title',
             validation: (rule) =>
                 rule.max(50).warning('Longer titles may be truncated by search engines'),
         }),

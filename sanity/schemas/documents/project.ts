@@ -7,13 +7,18 @@ export default defineType({
     title: 'Project',
     type: 'document',
     icon: DocumentIcon,
+    groups: [
+        { name: 'general', title: 'General', default: true },
+        { name: 'seo', title: 'SEO', icon: DocumentIcon },
+    ],
     fields: [
         defineField({
             name: 'title',
             description: 'Enter a brief but descriptive title',
             title: 'Project title',
             type: 'string',
-            validation: (rule) => rule.required()
+            validation: (rule) => rule.required(),
+            group: 'general',
         }),
         defineField({
             name: 'slug',
@@ -25,6 +30,7 @@ export default defineType({
                 isUnique: isUniqueOtherThanLanguage,
             },
             validation: (rule) => rule.required(),
+            group: 'general',
         }),
         defineField({
             name: 'category',
@@ -39,12 +45,14 @@ export default defineType({
                 layout: 'dropdown'
             },
             validation: (rule) => rule.required(),
+            group: 'general',
         }),
         defineField({
             name: 'role',
             description: 'e.g., Front-end engineer or Marketing analyst',
             title: 'Your role',
-            type: 'string'
+            type: 'string',
+            group: 'general',
         }),
         defineField({
             name: 'shortDescription',
@@ -52,12 +60,14 @@ export default defineType({
             title: 'Short description',
             type: 'text',
             rows: 2,
+            group: 'general',
         }),
         defineField({
             name: 'description',
             description: "Briefly describe the project's goals, your solution and the impact you made here",
             title: 'Project description',
             type: 'body',
+            group: 'general',
         }),
         defineField({
             name: 'skills',
@@ -69,7 +79,8 @@ export default defineType({
                     type: 'reference',
                     to: [{type: 'technologyTag'}],
                 }
-            ]
+            ],
+            group: 'general',
         }),
         defineField({
             name: 'tileImage',
@@ -83,6 +94,7 @@ export default defineType({
                 }
             ],
             validation: (rule) => rule.required().assetRequired(),
+            group: 'general',
         }),
         defineField({
             name: 'images',
@@ -108,6 +120,14 @@ export default defineType({
             options: {
                 layout: 'grid',
             },
+            group: 'general',
+        }),
+        // SEO
+        defineField({
+            name: 'seo',
+            title: 'SEO',
+            type: 'seo',
+            group: 'seo',
         }),
         defineField({
             // should match 'languageField' plugin configuration setting, if customized

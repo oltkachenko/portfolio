@@ -6,6 +6,7 @@ export default createMiddleware({
     locales: i18n.locales.map(locale => locale.id),
     // Used when no locale matches
     defaultLocale: i18n.defaultLocale,
+    alternateLinks: false
 });
 
 export const config = {

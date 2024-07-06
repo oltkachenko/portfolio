@@ -5,6 +5,7 @@ import Category from '@/components/portfolio/Category';
 import type { SanityProject } from '@/lib/sanity';
 import { PROJECT_SLUG_QUERY } from '@/queries/slugPages/projects';
 import { client } from '@/sanity/lib/client';
+import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -13,8 +14,47 @@ type Props = {
     params: { slug: string, locale: string };
 };
 
+const getProject = async ({params: {locale, slug}}: Props) => {
+    const data = await client.fetch<SanityProject>(
+        PROJECT_SLUG_QUERY, 
+        {
+            language: locale,
+            slug: slug,
+        },
+        {
+            next: { revalidate: 60 * 60 * 24 }
+        }
+    )
+
+    return data;
+}
+
+export async function generateMetadata({ params }: Props) {
+    const project = await getProject({params});
+    const t = await getTranslations('Metadata');
+
+    const metadata: Metadata = {
+        title: project.seo.title,
+        openGraph: {
+            title: project.seo.title,
+            type: "website",
+            locale: params.locale,
+            url: `${process.env.METADATA_BASE_URL}/${params.locale}/portfolio/${params.slug}`,
+            siteName: t('siteName')
+        },
+    }
+
+    if (project.seo.description) {
+        metadata.description = project.seo.description;
+        metadata.openGraph!.description = project.seo?.description
+    }
+
+    return metadata;
+}
+
 export default async function ProjectsSlugPage({ params }: Props) {
     const t = await getTranslations('PortfolioSlugPage')
+    const project = await getProject({ params })
 
     // const [page, setPage] = useState(null)
     // const params = useParams()
@@ -28,17 +68,6 @@ export default async function ProjectsSlugPage({ params }: Props) {
     //         }
     //     ).then((res) => setPage(res))
     // }, [params.slug, params.locale])
-
-    const project = await client.fetch<SanityProject>(
-        PROJECT_SLUG_QUERY, 
-        {
-            language: params.locale,
-            slug: params.slug,
-        },
-        {
-            next: { revalidate: 60 * 60 * 24 }
-        }
-    )
 
     // const [page] = await Promise.all([
     //     client.fetch<SanityProject>(

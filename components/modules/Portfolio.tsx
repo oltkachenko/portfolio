@@ -28,7 +28,7 @@ export default function Portfolio({ portfolio }: Props) {
                     {portfolio.projectsList && portfolio.projectsList.map(project => (
                         <div key={project._id} className='project_tile'>
                             {project.tileImage && (
-                                <Link href={project.slug}>
+                                <Link title={t('linkTitle')} href={project.slug}>
                                     <Image 
                                         className='project_tile-img'
                                         src={project.tileImage.url}

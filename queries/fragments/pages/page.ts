@@ -1,6 +1,7 @@
 import groq from "groq";
 import { MODULES } from "../modules";
 import { PORTABLE_TEXT } from "../portableText/portableText";
+import { SEO } from "../seo";
 
 export const PAGE = groq`
     _id,
@@ -17,6 +18,7 @@ export const PAGE = groq`
     modules[] {
         ${MODULES}
     },
+    ${SEO},
     "_translations": *[_type == "translation.metadata" && references(^._id)].translations[].value->{
         "slug": slug.current,
         language
