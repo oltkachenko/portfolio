@@ -2,6 +2,7 @@ import groq from "groq";
 import { PORTABLE_TEXT } from "../portableText/portableText";
 import { IMAGE } from "../image";
 import { TECHNOLOGY_TAG } from "../technologyTag";
+import { SEO } from "../seo";
 
 export const PROJECT_PAGE = groq`
     _id,
@@ -20,6 +21,7 @@ export const PROJECT_PAGE = groq`
     tileImage {
         ${IMAGE}
     },
+    ${SEO},
     images[] {
         "image": {
             ${IMAGE}

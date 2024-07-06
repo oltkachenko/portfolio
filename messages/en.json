@@ -49,5 +49,10 @@
     "PortfolioTile": {
         "linkwai": "Go to ''{name}'' project details",
         "linkTitle": "See details"
+    },
+    "Metadata": {
+        "title": "Oleg Tkachenko - Personal website",
+        "description": "Oleg Tkachenko - Senior Frontend Developer | ReactJS, NextJS, SFCC Enthusiast",
+        "siteName": "Portfolio website"
     }
 }

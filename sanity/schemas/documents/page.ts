@@ -7,12 +7,17 @@ export default defineType({
     name: 'page',
     title: 'Page',
     icon: DocumentIcon,
+    groups: [
+        { name: 'general', title: 'General', default: true },
+        { name: 'seo', title: 'SEO', icon: DocumentIcon },
+    ],
     fields: [
         defineField({
             type: 'string',
             name: 'title',
             title: 'Title',
             validation: (rule) => rule.required(),
+            group: 'general',
         }),
         defineField({
             name: 'slug',
@@ -24,6 +29,7 @@ export default defineType({
                 isUnique: isUniqueOtherThanLanguage,
             },
             validation: (rule) => rule.required(),
+            group: 'general',
         }),
         defineField({
             type: 'string',
@@ -37,12 +43,14 @@ export default defineType({
                 layout: 'dropdown'
             },
             validation: (rule) => rule.required(),
+            group: 'general',
         }),
         // Body
         defineField({
             name: 'body',
             title: 'Body',
             type: 'body',
+            group: 'general',
         }),
         // Modules
         defineField({
@@ -56,6 +64,14 @@ export default defineType({
                 {type: 'module.portfolio'},
                 {type: 'module.callout'},
             ],
+            group: 'general',
+        }),
+        // SEO
+        defineField({
+            name: 'seo',
+            title: 'SEO',
+            type: 'seo',
+            group: 'seo',
         }),
         defineField({
             // should match 'languageField' plugin configuration setting, if customized

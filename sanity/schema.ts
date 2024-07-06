@@ -6,7 +6,7 @@ import project from './schemas/documents/project'
 import navigation from './schemas/singletons/navigation'
 import linkExternal from './schemas/objects/linkExternal'
 import linkInternal from './schemas/objects/linkInternal'
-import seoHome from './schemas/objects/seo/home'
+import seo from './schemas/objects/seo'
 import moduleServices from './schemas/objects/module/services'
 import moduleAbout from './schemas/objects/module/about'
 import moduleCallout from './schemas/objects/module/callout'
@@ -29,7 +29,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
         linkPage,
         linkExternal,
         linkInternal,
-        seoHome,
+        seo,
         contactForm,
         services,
         moduleServices,
