@@ -34,6 +34,7 @@ export default function Tile(service: SanityService ) {
                         key={service._id}
                         link={service.detailsLink[0]}
                         aria-label={t('linkwai', {serviceName: service.title})}
+                        title={service.title}
                     >
                         {t('linkTitle')}
                         <FaArrowRight />
@@ -43,6 +44,7 @@ export default function Tile(service: SanityService ) {
                         className="tile-link"
                         href={service.slug}
                         aria-label={t('linkwai', {serviceName: service.title})}
+                        title={service.title}
                     >
                         {t('linkTitle')}
                         <FaArrowRight />

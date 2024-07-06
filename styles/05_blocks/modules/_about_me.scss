@@ -80,15 +80,26 @@
     &-actions {
         margin-top: 32px;
         display: flex;
+
+        @include media(sm) {
+            flex-direction: column;
+            gap: 20px;
+        }
     }
 
     &-social {
-        &::before {
-            content: '';
-            width: 1px;
-            height: 20px;
-            border-left: 2px solid #ccc;
-            margin: 0 4px 0 24px;
+        @include media(sm) {
+            justify-content: center;
+        }
+        
+        @include media(md-up) {
+            &::before {
+                content: '';
+                width: 1px;
+                height: 20px;
+                border-left: 2px solid #ccc;
+                margin: 0 4px 0 24px;
+            }
         }
     }
 }

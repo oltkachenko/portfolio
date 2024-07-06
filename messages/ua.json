@@ -49,5 +49,10 @@
     "PortfolioTile": {
         "linkwai": "Перейти до ''{name}'' проекту",
         "linkTitle": "Детальніше"
+    },
+    "Metadata": {
+        "title": "Олег Ткаченко - Персональний сайт",
+        "description": "Олег Ткаченко - Senior Frontend Developer | ReactJS, NextJS, SFCC Enthusiast",
+        "siteName": "Сайт портфоліо" 
     }
 }

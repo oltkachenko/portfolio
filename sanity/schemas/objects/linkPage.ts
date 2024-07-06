@@ -1,4 +1,4 @@
-import { PackageIcon } from '@sanity/icons'
+import { DocumentIcon, PackageIcon } from '@sanity/icons'
 import { defineField } from 'sanity'
 
 export default defineField({
@@ -6,12 +6,17 @@ export default defineField({
     title: 'Page',
     type: 'object',
     icon: PackageIcon,
+    groups: [
+        { name: 'general', title: 'General', default: true },
+        { name: 'seo', title: 'SEO', icon: DocumentIcon },
+    ],
     fields: [
         {
             name: 'title',
             title: 'Title',
             type: 'string',
             validation: (rule) => rule.required(),
+            group: 'general',
         },
         {
             type: 'string',
@@ -26,6 +31,7 @@ export default defineField({
                 layout: 'dropdown'
             },
             validation: (rule) => rule.required(),
+            group: 'general',
         },
         {
             name: 'buttonStyle',
@@ -37,8 +43,16 @@ export default defineField({
                     {title: 'Button', value: 'button-style'}
                 ],
                 layout: 'dropdown'
-            }
+            },
+            group: 'general',
         },
+        // SEO
+        defineField({
+            name: 'seo',
+            title: 'SEO',
+            type: 'seo',
+            group: 'seo',
+        }),
     ],
     preview: {
         select: {

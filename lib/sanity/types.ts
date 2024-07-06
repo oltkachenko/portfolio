@@ -27,6 +27,7 @@ export type SanityPage = {
     pageType: 'page-type' | undefined;
     body: PortableTextBlock[];
     modules: (SanityModule)[];
+    seo: SanitySeo;
     _translations: {
         slug: string;
         language: string
@@ -104,8 +105,10 @@ export type SanityLinkPage = {
     _key: string;
     _type: "linkPage";
     title: string;
+    pageType: string;
     buttonStyle?: 'link-style' | 'button-style';
     slug: string;
+    seo: SanitySeo;
 };
 
 export type SanityLinkExternal = {
@@ -152,6 +155,7 @@ export type SanityProject = {
     images: {
         image: SanityAssetImage
     }[];
+    seo: SanitySeo;
     _translations: {
         slug: string;
         language: string
