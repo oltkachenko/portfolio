@@ -50,18 +50,13 @@
         border-radius: 0 0 4px 4px;
         display: none;
         max-height: 300px;
-        left: 0;
+        right: 0;
         position: absolute;
         top: 100%;
         width: 100%;
+        min-width: 200px;
         z-index: -1;
         overflow: hidden;
-    
-        @include media(sm) {
-            width: 200px;
-            right: 0;
-            left: auto;
-        }
     }
 
     &.open &-menu {

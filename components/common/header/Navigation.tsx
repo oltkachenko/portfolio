@@ -1,6 +1,8 @@
 'use client'
 
-import { useEffect, useState } from "react"
+import useOnClickOutside from "@/hooks/useOnClickOutside";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react"
 import { MdOutlineClose } from "react-icons/md";
 
 export default function Navigation({
@@ -8,11 +10,19 @@ export default function Navigation({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const [isOpen, setIsOpen] = useState(false)
+    const ref = useRef<HTMLDivElement>(null);
+    const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         document.body.classList.toggle('modal-open', isOpen);
     }, [isOpen])
+
+    useEffect(() => {
+        setIsOpen(false);
+    }, [pathname]);
+
+    useOnClickOutside(ref, () => setIsOpen(false));
     
     return (
         <>
@@ -29,7 +39,10 @@ export default function Navigation({
             </div>
 
             <div className={`main_navigation ${isOpen ? 'open' : ''}`}>
-                <div className={`main_navigation-dialog ${isOpen ? 'open' : ''}`}>
+                <div 
+                    className={`main_navigation-dialog ${isOpen ? 'open' : ''}`}
+                    ref={ref}
+                >
                     <div className="main_navigation-header">
                         <span 
                             className="main_navigation-close"
