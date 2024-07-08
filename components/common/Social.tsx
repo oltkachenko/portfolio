@@ -15,6 +15,7 @@ export default function Social({ social }: Props ) {
         <div className='social'>
             {social.map(social => (
                 <Link
+                    key={social._id}
                     href={social.link}
                     title={t('linkwai', {social: social.title})}
                     target='_blank'
