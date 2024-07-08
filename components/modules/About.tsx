@@ -52,10 +52,8 @@ export default function About({ about }: Props) {
                             </Link>
 
                             {about.socialShow && (
-                                <div className='about_me-social social'>
-                                    {about.social.map(social => (
-                                        <Social key={social._id} social={social} />
-                                    ))}
+                                <div className='about_me-social'>
+                                    <Social social={about.social} />
                                 </div>
                             )}
                         </div>

@@ -168,9 +168,14 @@ export type SanitySeo = {
     title: string;
 };
 
-export type SanityFooterCopyright = {
-    copyright: string,
-    releaseDate: string
+export type SanityFooter = {
+    copyright: {
+        releaseDate: string;
+        text: string;
+    }
+    logoText?: string | null;
+    socialShow: boolean;
+    social: SanitySocial[];
 };
 
 export type SanityNavigation = {
@@ -205,4 +210,10 @@ export type SanitySocial = {
     title: string;
     link: string;
     image: SanityAssetImage;
+};
+
+export type SanitySitemap = {
+    _updatedAt: Date,
+    language: string,
+    slug: string;
 };

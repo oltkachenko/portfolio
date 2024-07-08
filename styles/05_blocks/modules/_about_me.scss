@@ -88,6 +88,9 @@
     }
 
     &-social {
+        display: flex;
+        align-items: center;
+
         @include media(sm) {
             justify-content: center;
         }
@@ -98,7 +101,7 @@
                 width: 1px;
                 height: 20px;
                 border-left: 2px solid #ccc;
-                margin: 0 4px 0 24px;
+                margin: 0 24px;
             }
         }
     }
