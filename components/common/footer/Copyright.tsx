@@ -1,25 +1,21 @@
-import type { SanityFooterCopyright } from '@/lib/sanity'
-import { FOOTER_COPYRIGHT } from '@/queries/fragments/footerCopyright'
-import { client } from '@/sanity/lib/client'
-import { getLocale } from 'next-intl/server'
+import type { SanityFooter } from "@/lib/sanity";
 
-export default async function Copyright() {
-    const locale = await getLocale()
-    const footerData = await client.fetch<SanityFooterCopyright>(FOOTER_COPYRIGHT, {
-        language: locale
-    })
+interface Props {
+    copyright: SanityFooter["copyright"]
+}
 
+export default async function Copyright({copyright}: Props) {
     const setDateRange = () => {
-        if  (new Date().getFullYear() > new Date(footerData.releaseDate).getFullYear()) {
-            return `${new Date(footerData.releaseDate).getFullYear()} - ${new Date().getFullYear()}`
+        if  (new Date().getFullYear() > new Date(copyright.releaseDate).getFullYear()) {
+            return `${new Date(copyright.releaseDate).getFullYear()} - ${new Date().getFullYear()}`
         }
 
-        return new Date(footerData.releaseDate).getFullYear();
+        return new Date(copyright.releaseDate).getFullYear();
     }
 
     return (
         <p>
-            © {footerData.copyright} {setDateRange()}
+            © {copyright.text} {setDateRange()}
         </p>
     )
 }

@@ -5,25 +5,29 @@ import Link from 'next/link'
 import React from 'react'
 
 interface Props {
-    social: SanitySocial
+    social: SanitySocial[]
 }
 
 export default function Social({ social }: Props ) {
     const t = useTranslations('Social')
 
     return (
-        <Link
-            href={social.link}
-            title={t('linkwai', {social: social.title})}
-            target='_blank'
-        >
-            <Image 
-                className=''
-                src={social.image.url}
-                alt={social.image.alt || social.image.altText || ''}
-                width={48}
-                height={48}
-            />
-        </Link>
+        <div className='social'>
+            {social.map(social => (
+                <Link
+                    href={social.link}
+                    title={t('linkwai', {social: social.title})}
+                    target='_blank'
+                >
+                    <Image 
+                        className=''
+                        src={social.image.url}
+                        alt={social.image.alt || social.image.altText || ''}
+                        width={48}
+                        height={48}
+                    />
+                </Link>
+            ))}
+        </div>
     )
 }

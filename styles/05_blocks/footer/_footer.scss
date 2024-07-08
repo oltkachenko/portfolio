@@ -2,14 +2,34 @@
     margin-top: 40px;
 
     &-inner {
-        max-width: 1440px;
+        max-width: $global-content-width-max;
         margin: 0 auto;
         padding: 0 20px;
-        text-align: center;
     }
 
     &-copyright {
         border-top: 2px solid #FFE6E8;
         padding: 20px 0;
+        text-align: center;
+    }
+
+    &-content {
+        padding: 32px 40px;
+        background: #FFE6E8;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include media(sm) {
+            padding: 24px;
+        }
+    }
+
+    &-logo {
+        display: flex;
+        flex-direction: column;
+        font-size: 18px;
+        font-weight: 500;
+        width: min-content;
     }
 }
