@@ -44,6 +44,11 @@ export default function Contact({ formTranslation, contact }: Props) {
 
             return; 
         }
+
+        await fetch("/api/send", {
+            method: "POST",
+            body: JSON.stringify({ name, email, subject, message }),
+        })
     
         res.json().then(data => setFormStatus({
             message: data.message,
