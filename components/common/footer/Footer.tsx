@@ -11,6 +11,9 @@ export default async function Footer() {
         FOOTER, 
         {
             language: locale
+        },
+        {
+            next: { revalidate: 60 * 60 * 24 * 7 }
         }
     )
 

@@ -7,9 +7,15 @@ import {Link} from "@/navigation"
 export default async function MenuBar() {
     const locale = await getLocale()
     
-    const navigation = await client.fetch<SanityNavigation>(NAVIGATION, {
-        language: locale
-    })
+    const navigation = await client.fetch<SanityNavigation>(
+        NAVIGATION, 
+        {
+            language: locale
+        },
+        {
+            next: { revalidate: 60 * 60 * 24 * 7 }
+        }
+    )
     
     const renderLinks = navigation.menuLinks.map((link: any) => {
         if (link._type === "linkPage") {
